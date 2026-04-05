@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XANOV — AI-автоматизации и разработка для бизнеса</title>
+    <meta name="description" content="Автоматизации с ИИ, разработка сайтов и приложений для вашего бизнеса. Готовые решения и индивидуальная разработка.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container header__inner">
+            <a href="#" class="logo">XANOV<span class="logo__dot">.</span></a>
+            <nav class="nav" id="nav">
+                <a href="#services" class="nav__link">Услуги</a>
+                <a href="#cases" class="nav__link">Кейсы</a>
+                <a href="#solutions" class="nav__link">Готовые решения</a>
+                <a href="#process" class="nav__link">Как это работает</a>
+                <a href="#reviews" class="nav__link">Отзывы</a>
+                <a href="#about" class="nav__link">Обо мне</a>
+            </nav>
+            <a href="#contact" class="btn btn--primary btn--sm header__cta">Обсудить проект</a>
+            <button class="burger" id="burger" aria-label="Меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu__nav">
+            <a href="#services" class="mobile-menu__link">Услуги</a>
+            <a href="#cases" class="mobile-menu__link">Кейсы</a>
+            <a href="#solutions" class="mobile-menu__link">Готовые решения</a>
+            <a href="#process" class="mobile-menu__link">Как это работает</a>
+            <a href="#reviews" class="mobile-menu__link">Отзывы</a>
+            <a href="#about" class="mobile-menu__link">Обо мне</a>
+            <a href="#contact" class="btn btn--primary btn--full">Обсудить проект</a>
+        </nav>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero__bg">
+            <div class="hero__glow hero__glow--1"></div>
+            <div class="hero__glow hero__glow--2"></div>
+            <div class="hero__grid"></div>
+        </div>
+        <div class="container hero__inner">
+            <div class="hero__badge animate-on-scroll">
+                <span class="hero__badge-dot"></span>
+                Открыт для новых проектов
+            </div>
+            <h1 class="hero__title animate-on-scroll">
+                Автоматизирую бизнес<br>
+                с помощью <span class="gradient-text">искусственного интеллекта</span>
+            </h1>
+            <p class="hero__subtitle animate-on-scroll">
+                Создаю AI-автоматизации, сайты и приложения, которые экономят время и увеличивают прибыль. От идеи до работающего продукта.
+            </p>
+            <div class="hero__actions animate-on-scroll">
+                <a href="#contact" class="btn btn--primary btn--lg">
+                    Начать проект
+                    <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#cases" class="btn btn--ghost btn--lg">Смотреть кейсы</a>
+            </div>
+            <div class="hero__stats animate-on-scroll">
+                <div class="hero__stat">
+                    <span class="hero__stat-value" data-count="20">0</span><span class="hero__stat-plus">+</span>
+                    <span class="hero__stat-label">Проектов</span>
+                </div>
+                <div class="hero__stat-divider"></div>
+                <div class="hero__stat">
+                    <span class="hero__stat-value" data-count="15">0</span><span class="hero__stat-plus">+</span>
+                    <span class="hero__stat-label">Клиентов</span>
+                </div>
+                <div class="hero__stat-divider"></div>
+                <div class="hero__stat">
+                    <span class="hero__stat-value" data-count="50">0</span><span class="hero__stat-plus">+</span>
+                    <span class="hero__stat-label">Автоматизаций</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section__header animate-on-scroll">
+                <span class="section__tag">Услуги</span>
+                <h2 class="section__title">Что я делаю</h2>
+                <p class="section__desc">Комплексные решения для автоматизации и цифровизации вашего бизнеса</p>
+            </div>
+            <div class="services__grid">
+                <div class="service-card animate-on-scroll" data-delay="0">
+                    <div class="service-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714a2.25 2.25 0 0 0 .659 1.591L19 14.5m-4.75-11.396c.251.023.501.05.75.082M5 14.5l-1.456 1.455a1.5 1.5 0 0 0 0 2.121l.707.707a1.5 1.5 0 0 0 2.121 0L7.828 17.33M5 14.5h14m0 0 1.456 1.455a1.5 1.5 0 0 1 0 2.121l-.707.707a1.5 1.5 0 0 1-2.121 0L16.172 17.33"/></svg>
+                    </div>
+                    <h3 class="service-card__title">AI-автоматизации</h3>
+                    <p class="service-card__desc">Автоматизация рутинных процессов с помощью ИИ. Интеграция с CRM, мессенджерами, почтой и любыми сервисами через n8n.</p>
+                    <ul class="service-card__list">
+                        <li>Обработка заявок и лидов</li>
+                        <li>Автоответы и классификация</li>
+                        <li>Генерация контента</li>
+                        <li>Аналитика и отчёты</li>
+                    </ul>
+                </div>
+                <div class="service-card animate-on-scroll" data-delay="100">
+                    <div class="service-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3a49.5 49.5 0 0 1-4.02-.163 2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/></svg>
+                    </div>
+                    <h3 class="service-card__title">AI-чатботы</h3>
+                    <p class="service-card__desc">Умные чатботы для Telegram, WhatsApp и сайтов. Отвечают на вопросы, принимают заказы и ведут клиентов по воронке.</p>
+                    <ul class="service-card__list">
+                        <li>Telegram / WhatsApp боты</li>
+                        <li>Виджеты для сайта</li>
+                        <li>Обучение на ваших данных</li>
+                        <li>Интеграция с CRM</li>
+                    </ul>
+                </div>
+                <div class="service-card animate-on-scroll" data-delay="200">
+                    <div class="service-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25z"/></svg>
+                    </div>
+                    <h3 class="service-card__title">Разработка сайтов</h3>
+                    <p class="service-card__desc">Современные сайты и лендинги, которые продают. Быстрая загрузка, адаптивный дизайн, SEO-оптимизация.</p>
+                    <ul class="service-card__list">
+                        <li>Лендинги и визитки</li>
+                        <li>Корпоративные сайты</li>
+                        <li>Интернет-магазины</li>
+                        <li>Веб-приложения</li>
+                    </ul>
+                </div>
+                <div class="service-card animate-on-scroll" data-delay="300">
+                    <div class="service-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-6 18h6"/></svg>
+                    </div>
+                    <h3 class="service-card__title">Приложения</h3>
+                    <p class="service-card__desc">Десктопные и мобильные приложения под ваши задачи. От простых утилит до полноценных бизнес-инструментов.</p>
+                    <ul class="service-card__list">
+                        <li>Десктопные приложения</li>
+                        <li>Telegram Mini Apps</li>
+                        <li>Внутренние инструменты</li>
+                        <li>MVP для стартапов</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASES -->
+    <section class="section cases" id="cases">
+        <div class="container">
+            <div class="section__header animate-on-scroll">
+                <span class="section__tag">Кейсы</span>
+                <h2 class="section__title">Реализованные проекты</h2>
+                <p class="section__desc">Каждый проект — это решённая бизнес-задача клиента</p>
+            </div>
+            <div class="cases__grid">
+                <div class="case-card animate-on-scroll" data-delay="0">
+                    <div class="case-card__image">
+                        <div class="case-card__placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/></svg>
+                        </div>
+                    </div>
+                    <div class="case-card__body">
+                        <div class="case-card__tags">
+                            <span class="tag">Автоматизация</span>
+                            <span class="tag">Telegram</span>
+                        </div>
+                        <h3 class="case-card__title">Система массовой рассылки в Telegram</h3>
+                        <p class="case-card__desc">Десктопное приложение для управления рассылками, парсинга аудитории и инвайтинга. Работа с множеством аккаунтов одновременно.</p>
+                        <div class="case-card__results">
+                            <div class="case-card__result">
+                                <span class="case-card__result-value">10x</span>
+                                <span class="case-card__result-label">Быстрее ручной работы</span>
+                            </div>
+                            <div class="case-card__result">
+                                <span class="case-card__result-value">∞</span>
+                                <span class="case-card__result-label">Аккаунтов</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-card animate-on-scroll" data-delay="100">
+                    <div class="case-card__image">
+                        <div class="case-card__placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09zm8.446-7.189L18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456zM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423z"/></svg>
+                        </div>
+                    </div>
+                    <div class="case-card__body">
+                        <div class="case-card__tags">
+                            <span class="tag">AI</span>
+                            <span class="tag">n8n</span>
+                        </div>
+                        <h3 class="case-card__title">AI-обработка заявок для интернет-магазина</h3>
+                        <p class="case-card__desc">Автоматизация обработки входящих заявок с классификацией через ИИ, маршрутизацией по менеджерам и автоответами клиентам.</p>
+                        <div class="case-card__results">
+                            <div class="case-card__result">
+                                <span class="case-card__result-value">-80%</span>
+                                <span class="case-card__result-label">Времени на обработку</span>
+                            </div>
+                            <div class="case-card__result">
+                                <span class="case-card__result-value">24/7</span>
+                                <span class="case-card__result-label">Без выходных</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-card animate-on-scroll" data-delay="200">
+                    <div class="case-card__image">
+                        <div class="case-card__placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 0 1-.657.643 48.491 48.491 0 0 1-4.163-.3c-1.108-.128-2.13.751-2.13 1.865v0c0 .942.68 1.753 1.607 1.893l.065.01c.96.145 1.927.259 2.9.343v0a.64.64 0 0 0 .657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 0 1-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.643.657.643a48.67 48.67 0 0 0 4.163-.3c1.108-.128 2.13.751 2.13 1.865v0c0 .942-.68 1.753-1.607 1.893l-.065.01c-.96.145-1.927.259-2.9.343v0A.64.64 0 0 1 14.25 12v0"/></svg>
+                        </div>
+                    </div>
+                    <div class="case-card__body">
+                        <div class="case-card__tags">
+                            <span class="tag">Разработка</span>
+                            <span class="tag">Игра</span>
+                        </div>
+                        <h3 class="case-card__title">Браузерная мини-игра</h3>
+                        <p class="case-card__desc">Разработка интерактивной игры с современным UI, анимациями и адаптивным дизайном. Интеграция с Telegram Mini Apps.</p>
+                        <div class="case-card__results">
+                            <div class="case-card__result">
+                                <span class="case-card__result-value">5K+</span>
+                                <span class="case-card__result-label">Игроков</span>
+                            </div>
+                            <div class="case-card__result">
+                                <span class="case-card__result-value">4.8</span>
+                                <span class="case-card__result-label">Оценка</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUTIONS -->
+    <section class="section solutions" id="solutions">
+        <div class="container">
+            <div class="section__header animate-on-scroll">
+                <span class="section__tag">Магазин</span>
+                <h2 class="section__title">Готовые решения</h2>
+                <p class="section__desc">Проверенные шаблоны автоматизаций — настраиваю под ваш бизнес за 1-2 дня</p>
+            </div>
+            <div class="solutions__grid">
+                <div class="solution-card animate-on-scroll" data-delay="0">
+                    <div class="solution-card__badge">Популярное</div>
+                    <div class="solution-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+                    </div>
+                    <h3 class="solution-card__title">AI Email-ассистент</h3>
+                    <p class="solution-card__desc">Автоматическая обработка входящей почты: классификация, ответы, пересылка нужному сотруднику.</p>
+                    <div class="solution-card__price">
+                        <span class="solution-card__price-value">от $150</span>
+                    </div>
+                    <a href="#contact" class="btn btn--outline btn--full">Подробнее</a>
+                </div>
+                <div class="solution-card animate-on-scroll" data-delay="100">
+                    <div class="solution-card__badge solution-card__badge--new">Новинка</div>
+                    <div class="solution-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg>
+                    </div>
+                    <h3 class="solution-card__title">Контент-генератор</h3>
+                    <p class="solution-card__desc">Автоматическая генерация постов для соцсетей, статей и описаний товаров на основе ваших данных.</p>
+                    <div class="solution-card__price">
+                        <span class="solution-card__price-value">от $100</span>
+                    </div>
+                    <a href="#contact" class="btn btn--outline btn--full">Подробнее</a>
+                </div>
+                <div class="solution-card animate-on-scroll" data-delay="200">
+                    <div class="solution-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75zm6.75-4.5c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625zm6.75-5.25c0-.621.504-1.125 1.125-1.125h2.25C20.496 2.25 21 2.754 21 3.375v16.5c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V3.375z"/></svg>
+                    </div>
+                    <h3 class="solution-card__title">Бот аналитики продаж</h3>
+                    <p class="solution-card__desc">Telegram-бот с ежедневными отчётами по продажам, воронке и ключевым метрикам. Интеграция с CRM.</p>
+                    <div class="solution-card__price">
+                        <span class="solution-card__price-value">от $200</span>
+                    </div>
+                    <a href="#contact" class="btn btn--outline btn--full">Подробнее</a>
+                </div>
+                <div class="solution-card animate-on-scroll" data-delay="300">
+                    <div class="solution-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0z"/></svg>
+                    </div>
+                    <h3 class="solution-card__title">Лид-менеджер</h3>
+                    <p class="solution-card__desc">Автосбор лидов из всех источников в одну базу с оценкой качества через ИИ и автоматическим распределением.</p>
+                    <div class="solution-card__price">
+                        <span class="solution-card__price-value">от $250</span>
+                    </div>
+                    <a href="#contact" class="btn btn--outline btn--full">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section process" id="process">
+        <div class="container">
+            <div class="section__header animate-on-scroll">
+                <span class="section__tag">Процесс</span>
+                <h2 class="section__title">Как это работает</h2>
+                <p class="section__desc">От первого сообщения до готового результата — 4 простых шага</p>
+            </div>
+            <div class="process__timeline">
+                <div class="process__step animate-on-scroll" data-delay="0">
+                    <div class="process__step-number">01</div>
+                    <div class="process__step-content">
+                        <h3 class="process__step-title">Обсуждаем задачу</h3>
+                        <p class="process__step-desc">Вы описываете проблему или идею. Я задаю вопросы, чтобы понять контекст. Вместе определяем оптимальное решение.</p>
+                    </div>
+                </div>
+                <div class="process__step animate-on-scroll" data-delay="150">
+                    <div class="process__step-number">02</div>
+                    <div class="process__step-content">
+                        <h3 class="process__step-title">Согласуем план и стоимость</h3>
+                        <p class="process__step-desc">Составляю чёткое ТЗ, определяем сроки и бюджет. Без сюрпризов — фиксированная цена.</p>
+                    </div>
+                </div>
+                <div class="process__step animate-on-scroll" data-delay="300">
+                    <div class="process__step-number">03</div>
+                    <div class="process__step-content">
+                        <h3 class="process__step-title">Разработка</h3>
+                        <p class="process__step-desc">Реализую решение, показываю промежуточные результаты. Вы в курсе на каждом этапе.</p>
+                    </div>
+                </div>
+                <div class="process__step animate-on-scroll" data-delay="450">
+                    <div class="process__step-number">04</div>
+                    <div class="process__step-content">
+                        <h3 class="process__step-title">Запуск и поддержка</h3>
+                        <p class="process__step-desc">Внедряем решение, обучаю вашу команду. Поддержка и доработки после запуска.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="section reviews" id="reviews">
+        <div class="container">
+            <div class="section__header animate-on-scroll">
+                <span class="section__tag">Отзывы</span>
+                <h2 class="section__title">Что говорят клиенты</h2>
+                <p class="section__desc">Реальные отзывы от людей, с которыми я работал</p>
+            </div>
+            <div class="reviews__slider">
+            <div class="reviews__grid" id="reviewsGrid">
+                <div class="review-card animate-on-scroll" data-delay="0">
+                    <div class="review-card__stars">★★★★★</div>
+                    <p class="review-card__text">Тимур сделал автоматизацию обработки заявок за 3 дня. Теперь экономим 4 часа в день на рутине. Рекомендую!</p>
+                    <div class="review-card__author">
+                        <div class="review-card__avatar">А</div>
+                        <div class="review-card__info">
+                            <span class="review-card__name">Алексей М.</span>
+                            <span class="review-card__role">Владелец интернет-магазина</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card animate-on-scroll" data-delay="100">
+                    <div class="review-card__stars">★★★★★</div>
+                    <p class="review-card__text">Заказывал Telegram-бота для аналитики продаж. Всё чётко, быстро, на связи 24/7. Бот работает без сбоев уже 3 месяца.</p>
+                    <div class="review-card__author">
+                        <div class="review-card__avatar">Д</div>
+                        <div class="review-card__info">
+                            <span class="review-card__name">Дмитрий К.</span>
+                            <span class="review-card__role">Предприниматель</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card animate-on-scroll" data-delay="200">
+                    <div class="review-card__stars">★★★★★</div>
+                    <p class="review-card__text">Сайт получился огонь — современный, быстрый, конверсия выросла в 2 раза. Тимур понимает маркетинг, это чувствуется.</p>
+                    <div class="review-card__author">
+                        <div class="review-card__avatar">М</div>
+                        <div class="review-card__info">
+                            <span class="review-card__name">Мария С.</span>
+                            <span class="review-card__role">Маркетолог</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="reviews__nav">
+                <button class="reviews__nav-btn" id="reviewPrev">←</button>
+                <span class="reviews__counter" id="reviewCounter"></span>
+                <button class="reviews__nav-btn" id="reviewNext">→</button>
+            </div>
+            </div>
+            <div class="reviews__form-wrapper animate-on-scroll">
+                <h3 class="reviews__form-title">Оставить отзыв</h3>
+                <form class="reviews__form" id="reviewForm">
+                    <div class="reviews__form-row">
+                        <input type="text" class="form__input" id="reviewName" placeholder="Ваше имя" required>
+                        <input type="text" class="form__input" id="reviewRole" placeholder="Ваша должность / компания">
+                    </div>
+                    <div class="reviews__form-stars" id="reviewStars">
+                        <span data-star="1">★</span>
+                        <span data-star="2">★</span>
+                        <span data-star="3">★</span>
+                        <span data-star="4">★</span>
+                        <span data-star="5" class="active">★</span>
+                    </div>
+                    <textarea class="form__input form__textarea" id="reviewText" placeholder="Ваш отзыв" rows="3" required></textarea>
+                    <button type="submit" class="btn btn--primary">Отправить отзыв</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about__inner animate-on-scroll">
+                <div class="about__photo">
+                    <div class="about__avatar">
+                        <div class="about__avatar-initials">T</div>
+                        <div class="about__avatar-ring"></div>
+                    </div>
+                </div>
+                <div class="about__content">
+                    <span class="section__tag">Обо мне</span>
+                    <h2 class="about__title">Тимур</h2>
+                    <p class="about__text">
+                        Маркетолог по образованию, который влюбился в технологии. Объединяю понимание бизнеса с возможностями ИИ, чтобы создавать решения, которые реально работают.
+                    </p>
+                    <p class="about__text">
+                        Специализируюсь на AI-автоматизациях через n8n, разработке сайтов и приложений. Каждый проект — это не просто код, а решение конкретной бизнес-задачи.
+                    </p>
+                    <div class="about__skills">
+                        <span class="about__skill">AI / ML</span>
+                        <span class="about__skill">n8n</span>
+                        <span class="about__skill">Автоматизации</span>
+                        <span class="about__skill">Чатботы</span>
+                        <span class="about__skill">Web</span>
+                        <span class="about__skill">Electron</span>
+                        <span class="about__skill">Маркетинг</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="contact__inner animate-on-scroll">
+                <div class="contact__content">
+                    <span class="section__tag">Контакты</span>
+                    <h2 class="contact__title">Давайте обсудим<br>ваш проект</h2>
+                    <p class="contact__desc">Расскажите о вашей задаче — я предложу оптимальное решение и оценю сроки. Первая консультация бесплатно.</p>
+                    <div class="contact__methods">
+                        <a href="https://t.me/Xanov09" class="contact__method" target="_blank" rel="noopener">
+                            <div class="contact__method-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                            </div>
+                            <div class="contact__method-info">
+                                <span class="contact__method-name">Telegram</span>
+                                <span class="contact__method-value">@Xanov09</span>
+                            </div>
+                        </a>
+                        <a href="mailto:byhanovtimur5@gmail.com" class="contact__method">
+                            <div class="contact__method-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0-8.953 5.468a2.234 2.234 0 0 1-2.594 0L2.25 6.75"/></svg>
+                            </div>
+                            <div class="contact__method-info">
+                                <span class="contact__method-name">Email</span>
+                                <span class="contact__method-value">byhanovtimur5@gmail.com</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact__form" id="contactForm">
+                    <div class="form__group">
+                        <input type="text" class="form__input" placeholder="Ваше имя" required>
+                    </div>
+                    <div class="form__group">
+                        <input type="text" class="form__input" placeholder="Telegram или телефон" required>
+                    </div>
+                    <div class="form__group">
+                        <select class="form__input form__select">
+                            <option value="" disabled selected>Что вас интересует?</option>
+                            <option value="automation">AI-автоматизация</option>
+                            <option value="chatbot">Чатбот</option>
+                            <option value="website">Сайт</option>
+                            <option value="app">Приложение</option>
+                            <option value="template">Готовое решение</option>
+                            <option value="other">Другое</option>
+                        </select>
+                    </div>
+                    <div class="form__group">
+                        <textarea class="form__input form__textarea" placeholder="Опишите вашу задачу" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full btn--lg">
+                        Отправить заявку
+                        <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__left">
+                <a href="#" class="logo">XANOV<span class="logo__dot">.</span></a>
+                <p class="footer__copy">&copy; 2025 XANOV. Все права защищены.</p>
+            </div>
+            <div class="footer__links">
+                <a href="#services">Услуги</a>
+                <a href="#cases">Кейсы</a>
+                <a href="#solutions">Решения</a>
+                <a href="#contact">Контакты</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
