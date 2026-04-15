@@ -183,9 +183,13 @@ ul {
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: 800;
-    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+}
+
+.logo__img {
+    height: 32px;
+    width: auto;
 }
 
 .logo__dot {
