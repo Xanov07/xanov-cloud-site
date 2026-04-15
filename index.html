@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XANOV — AI-автоматизации и разработка для бизнеса</title>
+    <title>XanovCompany — AI-автоматизации и разработка для бизнеса</title>
     <meta name="description" content="Автоматизации с ИИ, разработка сайтов и приложений для вашего бизнеса. Готовые решения и индивидуальная разработка.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,16 +14,25 @@
     <!-- HEADER -->
     <header class="header" id="header">
         <div class="container header__inner">
-            <a href="#" class="logo">XANOV</a>
+            <a href="#" class="logo">XanovCompany</a>
             <nav class="nav" id="nav">
-                <a href="#services" class="nav__link">Услуги</a>
-                <a href="#cases" class="nav__link">Кейсы</a>
-                <a href="#solutions" class="nav__link">Готовые решения</a>
-                <a href="#process" class="nav__link">Как это работает</a>
-                <a href="#reviews" class="nav__link">Отзывы</a>
-                <a href="#about" class="nav__link">Обо мне</a>
+                <a href="#services" class="nav__link" data-i18n="nav_services">Услуги</a>
+                <a href="#cases" class="nav__link" data-i18n="nav_cases">Кейсы</a>
+                <a href="#solutions" class="nav__link" data-i18n="nav_solutions">Готовые решения</a>
+                <a href="#process" class="nav__link" data-i18n="nav_process">Как это работает</a>
+                <a href="#reviews" class="nav__link" data-i18n="nav_reviews">Отзывы</a>
+                <a href="#about" class="nav__link" data-i18n="nav_about">О компании</a>
             </nav>
-            <a href="#contact" class="btn btn--primary btn--sm header__cta">Обсудить проект</a>
+            <div class="lang-switcher" id="langSwitcher">
+                <button class="lang-switcher__current" id="langBtn">RU ▾</button>
+                <div class="lang-switcher__dropdown" id="langDropdown">
+                    <button data-lang="ru">🇷🇺 Русский</button>
+                    <button data-lang="en">🇬🇧 English</button>
+                    <button data-lang="es">🇪🇸 Español</button>
+                    <button data-lang="uk">🇺🇦 Українська</button>
+                </div>
+            </div>
+            <a href="#contact" class="btn btn--primary btn--sm header__cta" data-i18n="nav_cta">Обсудить проект</a>
             <button class="burger" id="burger" aria-label="Меню">
                 <span></span><span></span><span></span>
             </button>
@@ -33,13 +42,13 @@
     <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobileMenu">
         <nav class="mobile-menu__nav">
-            <a href="#services" class="mobile-menu__link">Услуги</a>
-            <a href="#cases" class="mobile-menu__link">Кейсы</a>
-            <a href="#solutions" class="mobile-menu__link">Готовые решения</a>
-            <a href="#process" class="mobile-menu__link">Как это работает</a>
-            <a href="#reviews" class="mobile-menu__link">Отзывы</a>
-            <a href="#about" class="mobile-menu__link">Обо мне</a>
-            <a href="#contact" class="btn btn--primary btn--full">Обсудить проект</a>
+            <a href="#services" class="mobile-menu__link" data-i18n="nav_services">Услуги</a>
+            <a href="#cases" class="mobile-menu__link" data-i18n="nav_cases">Кейсы</a>
+            <a href="#solutions" class="mobile-menu__link" data-i18n="nav_solutions">Готовые решения</a>
+            <a href="#process" class="mobile-menu__link" data-i18n="nav_process">Как это работает</a>
+            <a href="#reviews" class="mobile-menu__link" data-i18n="nav_reviews">Отзывы</a>
+            <a href="#about" class="mobile-menu__link" data-i18n="nav_about">О компании</a>
+            <a href="#contact" class="btn btn--primary btn--full" data-i18n="nav_cta">Обсудить проект</a>
         </nav>
     </div>
 
@@ -412,17 +421,14 @@
     <section class="section about" id="about">
         <div class="container">
             <div class="about__inner animate-on-scroll">
-                <div class="about__photo">
-                    <img src="avatar.png" alt="Тимур — AI-специалист" class="about__photo-img">
-                </div>
                 <div class="about__content">
-                    <span class="section__tag">Обо мне</span>
-                    <h2 class="about__title">Тимур</h2>
-                    <p class="about__text">
-                        Маркетолог по образованию, который влюбился в технологии. Объединяю понимание бизнеса с возможностями ИИ, чтобы создавать решения, которые реально работают.
+                    <span class="section__tag" data-i18n="about_tag">О компании</span>
+                    <h2 class="about__title" data-i18n="about_title">XanovCompany</h2>
+                    <p class="about__text" data-i18n="about_text1">
+                        Мы — команда специалистов по AI-автоматизациям и разработке. Объединяем маркетинг, технологии и искусственный интеллект, чтобы создавать решения, которые реально работают на ваш бизнес.
                     </p>
-                    <p class="about__text">
-                        Специализируюсь на AI-автоматизациях через n8n, разработке сайтов и приложений. Каждый проект — это не просто код, а решение конкретной бизнес-задачи.
+                    <p class="about__text" data-i18n="about_text2">
+                        Специализируемся на автоматизациях через n8n, разработке сайтов, приложений и чатботов. Каждый проект — это не просто код, а решение конкретной бизнес-задачи с измеримым результатом.
                     </p>
                     <div class="about__skills">
                         <span class="about__skill">AI / ML</span>
@@ -430,7 +436,7 @@
                         <span class="about__skill">Автоматизации</span>
                         <span class="about__skill">Чатботы</span>
                         <span class="about__skill">Web</span>
-                        <span class="about__skill">Electron</span>
+                        <span class="about__skill">Приложения</span>
                         <span class="about__skill">Маркетинг</span>
                     </div>
                 </div>
@@ -501,8 +507,8 @@
     <footer class="footer">
         <div class="container footer__inner">
             <div class="footer__left">
-                <a href="#" class="logo">XANOV</a>
-                <p class="footer__copy">&copy; 2025 XANOV. Все права защищены.</p>
+                <a href="#" class="logo">XanovCompany</a>
+                <p class="footer__copy">&copy; 2025 XanovCompany. Все права защищены.</p>
             </div>
             <div class="footer__links">
                 <a href="#services">Услуги</a>
@@ -513,6 +519,7 @@
         </div>
     </footer>
 
+    <script src="i18n.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

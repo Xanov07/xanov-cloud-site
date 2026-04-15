@@ -197,6 +197,220 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- LANGUAGE SWITCHER ---
+    const langBtn = document.getElementById('langBtn');
+    const langDropdown = document.getElementById('langDropdown');
+    const langLabels = { ru: 'RU', en: 'EN', es: 'ES', uk: 'UA' };
+    let currentLang = localStorage.getItem('lang') || 'ru';
+
+    // Mapping: CSS selector → i18n key (text or innerHTML)
+    const i18nMap = [
+        // Nav
+        { sel: '.nav .nav__link[href="#services"]', key: 'nav_services' },
+        { sel: '.nav .nav__link[href="#cases"]', key: 'nav_cases' },
+        { sel: '.nav .nav__link[href="#solutions"]', key: 'nav_solutions' },
+        { sel: '.nav .nav__link[href="#process"]', key: 'nav_process' },
+        { sel: '.nav .nav__link[href="#reviews"]', key: 'nav_reviews' },
+        { sel: '.nav .nav__link[href="#about"]', key: 'nav_about' },
+        { sel: '.header__cta', key: 'nav_cta' },
+        // Mobile nav
+        { sel: '.mobile-menu__link[href="#services"]', key: 'nav_services' },
+        { sel: '.mobile-menu__link[href="#cases"]', key: 'nav_cases' },
+        { sel: '.mobile-menu__link[href="#solutions"]', key: 'nav_solutions' },
+        { sel: '.mobile-menu__link[href="#process"]', key: 'nav_process' },
+        { sel: '.mobile-menu__link[href="#reviews"]', key: 'nav_reviews' },
+        { sel: '.mobile-menu__link[href="#about"]', key: 'nav_about' },
+        { sel: '.mobile-menu__nav .btn--primary', key: 'nav_cta' },
+        // Hero
+        { sel: '.hero__badge', key: 'hero_badge', html: true, prefix: '<span class="hero__badge-dot"></span> ' },
+        { sel: '.hero__title', key: null, custom: (t) => `${t.hero_title_1}<br>${t.hero_title_2}<span class="gradient-text">${t.hero_title_accent}</span>` },
+        { sel: '.hero__subtitle', key: 'hero_subtitle' },
+        { sel: '.hero__actions .btn--primary', key: 'hero_btn_start', html: true, suffix: ' <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>' },
+        { sel: '.hero__actions .btn--ghost', key: 'hero_btn_cases' },
+        { sel: '.hero__stat:nth-child(1) .hero__stat-label', key: 'hero_stat_projects' },
+        { sel: '.hero__stat:nth-child(3) .hero__stat-label', key: 'hero_stat_clients' },
+        { sel: '.hero__stat:nth-child(5) .hero__stat-label', key: 'hero_stat_automations' },
+        // Services
+        { sel: '#services .section__tag', key: 'services_tag' },
+        { sel: '#services .section__title', key: 'services_title' },
+        { sel: '#services .section__desc', key: 'services_desc' },
+        { sel: '.service-card:nth-child(1) .service-card__title', key: 'service1_title' },
+        { sel: '.service-card:nth-child(1) .service-card__desc', key: 'service1_desc' },
+        { sel: '.service-card:nth-child(1) .service-card__list li:nth-child(1)', key: 'service1_li1' },
+        { sel: '.service-card:nth-child(1) .service-card__list li:nth-child(2)', key: 'service1_li2' },
+        { sel: '.service-card:nth-child(1) .service-card__list li:nth-child(3)', key: 'service1_li3' },
+        { sel: '.service-card:nth-child(1) .service-card__list li:nth-child(4)', key: 'service1_li4' },
+        { sel: '.service-card:nth-child(2) .service-card__title', key: 'service2_title' },
+        { sel: '.service-card:nth-child(2) .service-card__desc', key: 'service2_desc' },
+        { sel: '.service-card:nth-child(2) .service-card__list li:nth-child(1)', key: 'service2_li1' },
+        { sel: '.service-card:nth-child(2) .service-card__list li:nth-child(2)', key: 'service2_li2' },
+        { sel: '.service-card:nth-child(2) .service-card__list li:nth-child(3)', key: 'service2_li3' },
+        { sel: '.service-card:nth-child(2) .service-card__list li:nth-child(4)', key: 'service2_li4' },
+        { sel: '.service-card:nth-child(3) .service-card__title', key: 'service3_title' },
+        { sel: '.service-card:nth-child(3) .service-card__desc', key: 'service3_desc' },
+        { sel: '.service-card:nth-child(3) .service-card__list li:nth-child(1)', key: 'service3_li1' },
+        { sel: '.service-card:nth-child(3) .service-card__list li:nth-child(2)', key: 'service3_li2' },
+        { sel: '.service-card:nth-child(3) .service-card__list li:nth-child(3)', key: 'service3_li3' },
+        { sel: '.service-card:nth-child(3) .service-card__list li:nth-child(4)', key: 'service3_li4' },
+        { sel: '.service-card:nth-child(4) .service-card__title', key: 'service4_title' },
+        { sel: '.service-card:nth-child(4) .service-card__desc', key: 'service4_desc' },
+        { sel: '.service-card:nth-child(4) .service-card__list li:nth-child(1)', key: 'service4_li1' },
+        { sel: '.service-card:nth-child(4) .service-card__list li:nth-child(2)', key: 'service4_li2' },
+        { sel: '.service-card:nth-child(4) .service-card__list li:nth-child(3)', key: 'service4_li3' },
+        { sel: '.service-card:nth-child(4) .service-card__list li:nth-child(4)', key: 'service4_li4' },
+        // Cases
+        { sel: '#cases .section__tag', key: 'cases_tag' },
+        { sel: '#cases .section__title', key: 'cases_title' },
+        { sel: '#cases .section__desc', key: 'cases_desc' },
+        { sel: '.case-card:nth-child(1) .tag:nth-child(1)', key: 'case1_tag1' },
+        { sel: '.case-card:nth-child(1) .tag:nth-child(2)', key: 'case1_tag2' },
+        { sel: '.case-card:nth-child(1) .case-card__title', key: 'case1_title' },
+        { sel: '.case-card:nth-child(1) .case-card__desc', key: 'case1_desc' },
+        { sel: '.case-card:nth-child(1) .case-card__result:nth-child(1) .case-card__result-value', key: 'case1_val1' },
+        { sel: '.case-card:nth-child(1) .case-card__result:nth-child(1) .case-card__result-label', key: 'case1_label1' },
+        { sel: '.case-card:nth-child(1) .case-card__result:nth-child(2) .case-card__result-value', key: 'case1_val2' },
+        { sel: '.case-card:nth-child(1) .case-card__result:nth-child(2) .case-card__result-label', key: 'case1_label2' },
+        { sel: '.case-card:nth-child(2) .tag:nth-child(1)', key: 'case2_tag1' },
+        { sel: '.case-card:nth-child(2) .tag:nth-child(2)', key: 'case2_tag2' },
+        { sel: '.case-card:nth-child(2) .case-card__title', key: 'case2_title' },
+        { sel: '.case-card:nth-child(2) .case-card__desc', key: 'case2_desc' },
+        { sel: '.case-card:nth-child(2) .case-card__result:nth-child(1) .case-card__result-value', key: 'case2_val1' },
+        { sel: '.case-card:nth-child(2) .case-card__result:nth-child(1) .case-card__result-label', key: 'case2_label1' },
+        { sel: '.case-card:nth-child(2) .case-card__result:nth-child(2) .case-card__result-value', key: 'case2_val2' },
+        { sel: '.case-card:nth-child(2) .case-card__result:nth-child(2) .case-card__result-label', key: 'case2_label2' },
+        { sel: '.case-card:nth-child(3) .tag:nth-child(1)', key: 'case3_tag1' },
+        { sel: '.case-card:nth-child(3) .tag:nth-child(2)', key: 'case3_tag2' },
+        { sel: '.case-card:nth-child(3) .case-card__title', key: 'case3_title' },
+        { sel: '.case-card:nth-child(3) .case-card__desc', key: 'case3_desc' },
+        { sel: '.case-card:nth-child(3) .case-card__result:nth-child(1) .case-card__result-value', key: 'case3_val1' },
+        { sel: '.case-card:nth-child(3) .case-card__result:nth-child(1) .case-card__result-label', key: 'case3_label1' },
+        { sel: '.case-card:nth-child(3) .case-card__result:nth-child(2) .case-card__result-value', key: 'case3_val2' },
+        { sel: '.case-card:nth-child(3) .case-card__result:nth-child(2) .case-card__result-label', key: 'case3_label2' },
+        // Solutions
+        { sel: '#solutions .section__tag', key: 'solutions_tag' },
+        { sel: '#solutions .section__title', key: 'solutions_title' },
+        { sel: '#solutions .section__desc', key: 'solutions_desc' },
+        { sel: '.solution-card:nth-child(1) .solution-card__badge', key: 'solution1_badge' },
+        { sel: '.solution-card:nth-child(1) .solution-card__title', key: 'solution1_title' },
+        { sel: '.solution-card:nth-child(1) .solution-card__desc', key: 'solution1_desc' },
+        { sel: '.solution-card:nth-child(1) .solution-card__price-value', key: 'solution1_price' },
+        { sel: '.solution-card:nth-child(1) .btn--outline', key: 'solution_btn' },
+        { sel: '.solution-card:nth-child(2) .solution-card__badge', key: 'solution2_badge' },
+        { sel: '.solution-card:nth-child(2) .solution-card__title', key: 'solution2_title' },
+        { sel: '.solution-card:nth-child(2) .solution-card__desc', key: 'solution2_desc' },
+        { sel: '.solution-card:nth-child(2) .solution-card__price-value', key: 'solution2_price' },
+        { sel: '.solution-card:nth-child(2) .btn--outline', key: 'solution_btn' },
+        { sel: '.solution-card:nth-child(3) .solution-card__title', key: 'solution3_title' },
+        { sel: '.solution-card:nth-child(3) .solution-card__desc', key: 'solution3_desc' },
+        { sel: '.solution-card:nth-child(3) .solution-card__price-value', key: 'solution3_price' },
+        { sel: '.solution-card:nth-child(3) .btn--outline', key: 'solution_btn' },
+        { sel: '.solution-card:nth-child(4) .solution-card__title', key: 'solution4_title' },
+        { sel: '.solution-card:nth-child(4) .solution-card__desc', key: 'solution4_desc' },
+        { sel: '.solution-card:nth-child(4) .solution-card__price-value', key: 'solution4_price' },
+        { sel: '.solution-card:nth-child(4) .btn--outline', key: 'solution_btn' },
+        // Process
+        { sel: '#process .section__tag', key: 'process_tag' },
+        { sel: '#process .section__title', key: 'process_title' },
+        { sel: '#process .section__desc', key: 'process_desc' },
+        { sel: '.process__step:nth-child(1) .process__step-title', key: 'step1_title' },
+        { sel: '.process__step:nth-child(1) .process__step-desc', key: 'step1_desc' },
+        { sel: '.process__step:nth-child(2) .process__step-title', key: 'step2_title' },
+        { sel: '.process__step:nth-child(2) .process__step-desc', key: 'step2_desc' },
+        { sel: '.process__step:nth-child(3) .process__step-title', key: 'step3_title' },
+        { sel: '.process__step:nth-child(3) .process__step-desc', key: 'step3_desc' },
+        { sel: '.process__step:nth-child(4) .process__step-title', key: 'step4_title' },
+        { sel: '.process__step:nth-child(4) .process__step-desc', key: 'step4_desc' },
+        // Reviews
+        { sel: '#reviews .section__tag', key: 'reviews_tag' },
+        { sel: '#reviews .section__title', key: 'reviews_title' },
+        { sel: '#reviews .section__desc', key: 'reviews_desc' },
+        { sel: '.reviews__form-title', key: 'review_form_title' },
+        { sel: '#reviewForm .btn--primary', key: 'review_btn' },
+        // About
+        { sel: '#about .section__tag', key: 'about_tag' },
+        { sel: '.about__title', key: 'about_title' },
+        { sel: '.about__text:nth-child(3)', key: 'about_text1' },
+        { sel: '.about__text:nth-child(4)', key: 'about_text2' },
+        // Contact
+        { sel: '#contact .section__tag', key: 'contact_tag' },
+        { sel: '.contact__title', key: 'contact_title', html: true },
+        { sel: '.contact__desc', key: 'contact_desc' },
+        // Footer
+        { sel: '.footer__copy', key: 'footer_copy' },
+        { sel: '.footer__links a[href="#services"]', key: 'footer_services' },
+        { sel: '.footer__links a[href="#cases"]', key: 'footer_cases' },
+        { sel: '.footer__links a[href="#solutions"]', key: 'footer_solutions' },
+        { sel: '.footer__links a[href="#contact"]', key: 'footer_contacts' },
+    ];
+
+    // Placeholder mappings
+    const i18nPlaceholders = [
+        { sel: '#reviewName', key: 'review_name_ph' },
+        { sel: '#reviewRole', key: 'review_role_ph' },
+        { sel: '#reviewText', key: 'review_text_ph' },
+        { sel: '#contactForm .form__input:nth-child(1) input, #contactForm .form__group:nth-child(1) .form__input', key: 'form_name' },
+        { sel: '#contactForm .form__group:nth-child(2) .form__input', key: 'form_contact' },
+        { sel: '#contactForm .form__group:nth-child(4) .form__textarea', key: 'form_message' },
+    ];
+
+    // Select options
+    const i18nOptions = [
+        { sel: '#contactForm .form__select option[value=""]', key: 'form_select' },
+        { sel: '#contactForm .form__select option[value="automation"]', key: 'form_opt_automation' },
+        { sel: '#contactForm .form__select option[value="chatbot"]', key: 'form_opt_chatbot' },
+        { sel: '#contactForm .form__select option[value="website"]', key: 'form_opt_website' },
+        { sel: '#contactForm .form__select option[value="app"]', key: 'form_opt_app' },
+        { sel: '#contactForm .form__select option[value="template"]', key: 'form_opt_template' },
+        { sel: '#contactForm .form__select option[value="other"]', key: 'form_opt_other' },
+    ];
+
+    function applyLang(lang) {
+        const t = translations[lang];
+        if (!t) return;
+        currentLang = lang;
+        localStorage.setItem('lang', lang);
+        document.documentElement.lang = lang;
+        langBtn.textContent = langLabels[lang] + ' ▾';
+
+        i18nMap.forEach(({ sel, key, html, prefix, suffix, custom }) => {
+            const el = document.querySelector(sel);
+            if (!el) return;
+            if (custom) { el.innerHTML = custom(t); return; }
+            const val = (prefix || '') + t[key] + (suffix || '');
+            if (html) el.innerHTML = val; else el.textContent = t[key];
+        });
+
+        i18nPlaceholders.forEach(({ sel, key }) => {
+            const el = document.querySelector(sel);
+            if (el) el.placeholder = t[key];
+        });
+
+        i18nOptions.forEach(({ sel, key }) => {
+            const el = document.querySelector(sel);
+            if (el) el.textContent = t[key];
+        });
+
+        // Contact form submit button
+        const formBtn = document.querySelector('#contactForm button[type="submit"]');
+        if (formBtn) formBtn.innerHTML = t.form_btn + ' <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+    }
+
+    langBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        langDropdown.classList.toggle('active');
+    });
+
+    langDropdown.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            applyLang(btn.dataset.lang);
+            langDropdown.classList.remove('active');
+        });
+    });
+
+    document.addEventListener('click', () => langDropdown.classList.remove('active'));
+
+    if (currentLang !== 'ru') applyLang(currentLang);
+
     // --- CONTACT FORM ---
     const form = document.getElementById('contactForm');
     form.addEventListener('submit', async (e) => {
