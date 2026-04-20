@@ -200,6 +200,11 @@ ul {
     letter-spacing: -0.5px;
 }
 
+.logo__icon {
+    height: 28px;
+    width: auto;
+}
+
 
 .logo__dot {
     color: var(--accent-1);
