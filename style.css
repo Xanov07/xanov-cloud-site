@@ -188,21 +188,11 @@ ul {
     text-decoration: none;
 }
 
-.logo__text {
-    font-size: 20px;
-    font-weight: 800;
-    color: var(--text-primary);
-    letter-spacing: -0.5px;
-}
-
-.hero__logo {
-    margin-bottom: 24px;
-}
-
-.hero__logo-img {
-    height: 64px;
+.logo__img {
+    height: 40px;
     width: auto;
 }
+
 
 .logo__dot {
     color: var(--accent-1);
