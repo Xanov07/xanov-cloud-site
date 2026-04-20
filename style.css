@@ -194,7 +194,7 @@ ul {
 }
 
 .logo__text {
-    font-size: 26px;
+    font-size: 32px;
     font-weight: 800;
     color: var(--text-primary);
     letter-spacing: -0.5px;
@@ -1093,8 +1093,9 @@ ul {
 }
 
 .about__logo-img {
-    height: 80px;
+    height: 60px;
     width: auto;
+    max-width: 220px;
     filter: drop-shadow(0 0 24px rgba(124, 58, 237, 0.4));
 }
 
