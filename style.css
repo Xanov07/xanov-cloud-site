@@ -1084,6 +1084,18 @@ ul {
 }
 
 /* --- ABOUT --- */
+.about__logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+.about__logo-img {
+    height: 80px;
+    width: auto;
+    filter: drop-shadow(0 0 24px rgba(124, 58, 237, 0.4));
+}
+
 .about__inner {
     max-width: 800px;
     margin: 0 auto;
