@@ -189,8 +189,15 @@ ul {
 }
 
 .logo__img {
-    height: 40px;
+    height: 32px;
     width: auto;
+}
+
+.logo__text {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
 }
 
 
