@@ -432,6 +432,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             await sendToTelegram(text);
+
+            // Отправка данных в Finance Agent
+            if (service === 'template' || true) {
+                await fetch('https://n8n.xanov.cloud/webhook/orPOklqAS5VhcuoN', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: name,
+                        contact: contact,
+                        service: service,
+                        message: message,
+                        timestamp: new Date().toISOString()
+                    })
+                });
+            }
+
             btn.innerHTML = '<span>Отправлено! ✓</span>';
             btn.style.opacity = '0.7';
             setTimeout(() => {
