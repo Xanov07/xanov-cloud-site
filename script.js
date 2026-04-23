@@ -435,7 +435,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Отправка данных в Finance Agent
             if (service === 'template' || true) {
-                await fetch('https://n8n.xanov.cloud/webhook/orPOklqAS5VhcuoN', {
+                await fetch('https://n8n.xanov.cloud/webhook/website-order', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
