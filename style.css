@@ -994,6 +994,18 @@ ul {
     white-space: nowrap;
 }
 
+.addon-card--promo {
+    border-color: rgba(34, 197, 94, 0.3);
+    background: linear-gradient(135deg, rgba(34,197,94,0.05) 0%, var(--bg-card) 100%);
+}
+
+.addon-card__promo {
+    font-size: 12px;
+    font-weight: 600;
+    color: #22c55e;
+    margin-top: 4px;
+}
+
 /* --- SOLUTIONS --- */
 .solutions__grid {
     display: grid;
