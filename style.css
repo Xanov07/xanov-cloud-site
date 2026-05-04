@@ -808,24 +808,42 @@ ul {
     color: var(--text-muted);
 }
 
-.case-card__client {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-bottom: 8px;
+.case-card--text {
+    padding: 32px;
+}
+
+.case-card--text .case-card__tags {
+    margin-bottom: 16px;
+}
+
+.case-card__company {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: var(--text);
+}
+
+.case-card__list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+
+.case-card__list li {
+    font-size: 14px;
+    color: var(--text-secondary);
+    padding-left: 16px;
+    position: relative;
     line-height: 1.5;
 }
 
-.case-card__client span,
-.case-card__result-text span {
-    font-weight: 600;
-    color: var(--text-secondary);
-}
-
-.case-card__result-text {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: 20px;
+.case-card__list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent-1);
+    font-weight: 700;
 }
 
 /* --- AI AGENTS --- */
