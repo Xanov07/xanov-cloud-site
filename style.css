@@ -791,6 +791,7 @@ ul {
     gap: 24px;
     padding-top: 20px;
     border-top: 1px solid var(--border);
+    margin-bottom: 20px;
 }
 
 .case-card__result-value {
@@ -812,8 +813,35 @@ ul {
     padding: 32px;
 }
 
+.case-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 12px;
+}
+
+.case-card__num {
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 1;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.35;
+    flex-shrink: 0;
+}
+
 .case-card--text .case-card__tags {
-    margin-bottom: 16px;
+    margin-bottom: 0;
+}
+
+.case-card__what {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 24px;
 }
 
 .case-card__company {
@@ -1012,6 +1040,22 @@ ul {
     white-space: nowrap;
 }
 
+.addon-card__desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-top: 4px;
+}
+
+.addon-card__icon--green {
+    background: rgba(34, 197, 94, 0.12);
+    color: #22c55e;
+}
+
+.addon-card__price--green {
+    color: #22c55e;
+}
+
 .addon-card--promo {
     border-color: rgba(34, 197, 94, 0.3);
     background: linear-gradient(135deg, rgba(34,197,94,0.05) 0%, var(--bg-card) 100%);
@@ -1021,7 +1065,7 @@ ul {
     font-size: 12px;
     font-weight: 600;
     color: #22c55e;
-    margin-top: 4px;
+    margin-top: 6px;
 }
 
 /* --- SOLUTIONS --- */
