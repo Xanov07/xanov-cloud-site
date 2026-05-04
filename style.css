@@ -716,6 +716,7 @@ ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
+    align-items: stretch;
 }
 
 .case-card {
@@ -811,6 +812,12 @@ ul {
 
 .case-card--text {
     padding: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.case-card--text .case-card__story {
+    flex-grow: 1;
 }
 
 .case-card__header {
