@@ -212,7 +212,7 @@ ul {
 
 .nav {
     display: flex;
-    gap: 32px;
+    gap: 20px;
 }
 
 .nav__link {
@@ -221,6 +221,7 @@ ul {
     color: var(--text-secondary);
     transition: var(--transition);
     position: relative;
+    white-space: nowrap;
 }
 
 .nav__link::after {
