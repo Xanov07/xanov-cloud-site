@@ -669,6 +669,199 @@ ul {
     border-radius: 50%;
 }
 
+/* --- COMPARE BAR --- */
+.agents__compare-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 14px 20px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+
+.agents__compare-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.agents__compare-checks {
+    flex: 1;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.agents__compare-hint {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.agents__compare-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    background: rgba(124, 58, 237, 0.1);
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    border-radius: 100px;
+    font-size: 13px;
+    color: var(--accent-1);
+}
+
+.agent-card__compare {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+    z-index: 2;
+}
+
+.agent-card--featured .agent-card__compare {
+    left: 16px;
+}
+
+.agent-card__compare input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    accent-color: var(--accent-1);
+    cursor: pointer;
+}
+
+.agent-card__compare:hover {
+    color: var(--accent-1);
+}
+
+/* Compare modal */
+.compare-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(7,7,10,0.85);
+    backdrop-filter: blur(12px);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.compare-modal.active {
+    display: flex;
+}
+
+.compare-modal__inner {
+    background: var(--bg-card);
+    border: 1px solid var(--border-hover);
+    border-radius: var(--radius-xl);
+    padding: 40px;
+    max-width: 900px;
+    width: 100%;
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.compare-modal__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 8px;
+    transition: color 0.2s ease;
+}
+
+.compare-modal__close:hover { color: var(--text); }
+
+.compare-modal__title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.compare-modal__table {
+    display: grid;
+    gap: 12px;
+}
+
+.compare-row {
+    display: grid;
+    grid-template-columns: 160px repeat(3, 1fr);
+    gap: 12px;
+    align-items: center;
+}
+
+.compare-row--header {
+    font-weight: 700;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.compare-row:not(.compare-row--header) {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+}
+
+.compare-label {
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.compare-val {
+    color: var(--text-secondary);
+}
+
+/* --- SOLUTIONS FILTERS --- */
+.solutions__filters {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: var(--font);
+    background: transparent;
+    border: 1px solid var(--border-hover);
+    border-radius: 100px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn:hover {
+    border-color: var(--accent-1);
+    color: var(--text);
+}
+
+.filter-btn--active {
+    background: var(--accent-gradient);
+    border-color: transparent;
+    color: #fff;
+}
+
+.solution-card--hidden {
+    display: none;
+}
+
 /* --- CASES --- */
 .cases {
     background: linear-gradient(180deg, transparent, rgba(124, 58, 237, 0.03), transparent);
@@ -768,6 +961,26 @@ ul {
 .case-card__result-label {
     font-size: 12px;
     color: var(--text-muted);
+}
+
+.case-card__client {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.case-card__client span,
+.case-card__result-text span {
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.case-card__result-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
 /* --- AI AGENTS --- */
