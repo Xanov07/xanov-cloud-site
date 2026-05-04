@@ -817,15 +817,25 @@ ul {
 .agent-card__icon {
     width: 48px;
     height: 48px;
+    min-width: 48px;
+    min-height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: rgba(124, 58, 237, 0.12);
     border-radius: 12px;
     color: var(--accent-1);
+    overflow: hidden;
 }
 
-.agent-card__icon svg { width: 24px; height: 24px; }
+.agent-card__icon svg {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    display: block;
+    flex-shrink: 0;
+}
 
 .agent-card__title {
     font-size: 20px;
@@ -908,15 +918,23 @@ ul {
     width: 40px;
     height: 40px;
     min-width: 40px;
+    min-height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: rgba(124, 58, 237, 0.12);
     border-radius: 10px;
     color: var(--accent-1);
+    overflow: hidden;
 }
 
-.addon-card__icon svg { width: 20px; height: 20px; }
+.addon-card__icon svg {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    display: block;
+    flex-shrink: 0;
+}
 
 .addon-card__body { flex: 1; }
 
