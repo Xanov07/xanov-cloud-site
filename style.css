@@ -844,6 +844,33 @@ ul {
     margin-bottom: 24px;
 }
 
+.case-card__story {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.case-card__story-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.case-card__story-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-1);
+}
+
+.case-card__story-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
 .case-card__company {
     font-size: 20px;
     font-weight: 700;
@@ -977,9 +1004,9 @@ ul {
 }
 
 .agents__addons-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
     gap: 16px;
+    align-items: stretch;
 }
 
 .addon-card {
@@ -991,6 +1018,7 @@ ul {
     gap: 16px;
     align-items: flex-start;
     transition: var(--transition);
+    flex: 1;
 }
 
 .addon-card:hover { border-color: var(--border-hover); }
@@ -1017,7 +1045,11 @@ ul {
     flex-shrink: 0;
 }
 
-.addon-card__body { flex: 1; }
+.addon-card__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
 
 .addon-card__header {
     display: flex;
@@ -1614,7 +1646,10 @@ ul {
         grid-template-columns: repeat(2, 1fr);
     }
     .agents__addons-grid {
-        grid-template-columns: repeat(2, 1fr);
+        flex-wrap: wrap;
+    }
+    .addon-card {
+        flex: 1 1 calc(50% - 8px);
     }
     .solutions__grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1659,7 +1694,10 @@ ul {
     }
 
     .agents__addons-grid {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+    .addon-card {
+        flex: 1 1 auto;
     }
 
     .cases__grid {
