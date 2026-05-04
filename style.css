@@ -770,10 +770,187 @@ ul {
     color: var(--text-muted);
 }
 
+/* --- AI AGENTS --- */
+.agents__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
+}
+
+.agent-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    transition: var(--transition);
+}
+
+.agent-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-4px);
+}
+
+.agent-card--featured {
+    border-color: var(--accent-1);
+    background: linear-gradient(135deg, rgba(124,58,237,0.08) 0%, rgba(59,130,246,0.05) 100%);
+}
+
+.agent-card__popular {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.agent-card__icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(124, 58, 237, 0.12);
+    border-radius: 12px;
+    color: var(--accent-1);
+}
+
+.agent-card__icon svg { width: 24px; height: 24px; }
+
+.agent-card__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.agent-card__desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.agent-card__features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.agent-card__features li {
+    font-size: 14px;
+    color: var(--text-secondary);
+    padding-left: 20px;
+    position: relative;
+}
+
+.agent-card__features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-1);
+    font-weight: 700;
+}
+
+.agent-card__price {
+    font-size: 15px;
+    color: var(--text-secondary);
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+}
+
+.agent-card__price span {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.agents__addons { }
+
+.agents__addons-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.agents__addons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.addon-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    transition: var(--transition);
+}
+
+.addon-card:hover { border-color: var(--border-hover); }
+
+.addon-card__icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(124, 58, 237, 0.12);
+    border-radius: 10px;
+    color: var(--accent-1);
+}
+
+.addon-card__icon svg { width: 20px; height: 20px; }
+
+.addon-card__body { flex: 1; }
+
+.addon-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    gap: 8px;
+}
+
+.addon-card__name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.addon-card__price {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent-1);
+    white-space: nowrap;
+}
+
+.addon-card__desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
 /* --- SOLUTIONS --- */
 .solutions__grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 
@@ -1312,6 +1489,12 @@ ul {
 
 /* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
+    .agents__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .agents__addons-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
     .solutions__grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1347,6 +1530,14 @@ ul {
     }
 
     .services__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .agents__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .agents__addons-grid {
         grid-template-columns: 1fr;
     }
 
