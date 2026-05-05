@@ -1,7 +1,7 @@
 (() => {
-    const API_URL = 'https://api.xanov.cloud/chat';  // fallback: http://72.61.191.110:8000/chat
+    const API_URL = 'https://api.xanov.cloud/chat';
+    const MAX_HISTORY = 50; // максимум сообщений в localStorage
 
-    // Генерируем или достаём session_id из localStorage
     function getSessionId() {
         let id = localStorage.getItem('xanov_session_id');
         if (!id) {
@@ -9,6 +9,22 @@
             localStorage.setItem('xanov_session_id', id);
         }
         return id;
+    }
+
+    function loadHistory() {
+        try {
+            return JSON.parse(localStorage.getItem('xanov_chat_history') || '[]');
+        } catch { return []; }
+    }
+
+    function saveHistory(history) {
+        // Держим только последние MAX_HISTORY сообщений
+        const trimmed = history.slice(-MAX_HISTORY);
+        localStorage.setItem('xanov_chat_history', JSON.stringify(trimmed));
+    }
+
+    function clearHistory() {
+        localStorage.removeItem('xanov_chat_history');
     }
 
     const sessionId = getSessionId();
@@ -20,11 +36,35 @@
     const input    = document.getElementById('chatInput');
     const sendBtn  = document.getElementById('chatSend');
     const badge    = document.getElementById('chatBadge');
+    const greeting = document.getElementById('chatGreeting');
 
     let isOpen = false;
     let isLoading = false;
+    let chatHistory = loadHistory();
 
-    // Открыть/закрыть
+    // Восстанавливаем историю при загрузке
+    function restoreHistory() {
+        if (chatHistory.length === 0) return;
+        // Скрываем приветствие если есть история
+        if (greeting) greeting.style.display = 'none';
+        chatHistory.forEach(msg => {
+            renderMessage(msg.text, msg.role, false);
+        });
+        scrollToBottom();
+    }
+
+    function renderMessage(text, role, save = true) {
+        const div = document.createElement('div');
+        div.className = `chat-msg chat-msg--${role}`;
+        div.textContent = text;
+        messages.appendChild(div);
+        if (save) {
+            chatHistory.push({ text, role });
+            saveHistory(chatHistory);
+        }
+        return div;
+    }
+
     function openChat() {
         isOpen = true;
         widget.classList.add('active');
@@ -41,12 +81,10 @@
     toggle.addEventListener('click', () => isOpen ? closeChat() : openChat());
     closeBtn.addEventListener('click', closeChat);
 
-    // Закрыть по клику вне виджета
     document.addEventListener('click', (e) => {
         if (isOpen && !widget.contains(e.target)) closeChat();
     });
 
-    // Отправка по Enter
     input.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
@@ -58,15 +96,6 @@
 
     function scrollToBottom() {
         setTimeout(() => messages.scrollTop = messages.scrollHeight, 50);
-    }
-
-    function addMessage(text, role) {
-        const div = document.createElement('div');
-        div.className = `chat-msg chat-msg--${role}`;
-        div.textContent = text;
-        messages.appendChild(div);
-        scrollToBottom();
-        return div;
     }
 
     function showTyping() {
@@ -91,7 +120,10 @@
         isLoading = true;
         sendBtn.disabled = true;
 
-        addMessage(text, 'user');
+        // Скрываем приветствие при первом сообщении
+        if (greeting) greeting.style.display = 'none';
+
+        renderMessage(text, 'user');
         showTyping();
 
         try {
@@ -107,25 +139,28 @@
 
             const data = await res.json();
             removeTyping();
-            addMessage(data.reply || data.response || data.message || 'Ошибка. Попробуйте ещё раз.', 'bot');
 
-            // Если заказ — показываем уведомление
+            const reply = data.reply || data.response || data.message || 'Ошибка. Попробуйте ещё раз.';
+            renderMessage(reply, 'bot');
+
             if (data.order_mode) {
                 setTimeout(() => {
-                    addMessage('Менеджер свяжется с вами в Telegram в течение часа.', 'bot');
+                    renderMessage('Менеджер свяжется с вами в Telegram в течение часа.', 'bot');
                 }, 600);
             }
 
         } catch {
             removeTyping();
-            addMessage('Нет соединения. Попробуйте позже.', 'bot');
+            renderMessage('Нет соединения. Попробуйте позже.', 'bot');
         } finally {
             isLoading = false;
             sendBtn.disabled = false;
             input.focus();
         }
 
-        // Если чат закрыт — показываем бейдж
         if (!isOpen) badge.classList.add('visible');
     }
+
+    // Восстанавливаем историю при загрузке страницы
+    restoreHistory();
 })();
