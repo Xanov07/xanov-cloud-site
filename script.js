@@ -442,8 +442,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const name = inputs[0].value.trim();
         const contact = inputs[1].value.trim();
-        const serviceSelect = inputs[2];
-        const service = serviceSelect.options[serviceSelect.selectedIndex]?.text || 'Не выбрано';
+        const serviceSelect = form.querySelector('select.form__select');
+        const service = serviceSelect && serviceSelect.selectedIndex > 0
+            ? serviceSelect.options[serviceSelect.selectedIndex].text
+            : 'Не выбрано';
         const message = inputs[3].value.trim();
 
         const text = `📩 <b>Новая заявка с сайта</b>\n\n👤 <b>Имя:</b> ${name}\n📱 <b>Контакт:</b> ${contact}\n📋 <b>Услуга:</b> ${service}\n💬 <b>Сообщение:</b> ${message}`;
