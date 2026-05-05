@@ -579,7 +579,42 @@
         </div>
     </footer>
 
+    <!-- AI CHAT WIDGET -->
+    <div class="chat-widget" id="chatWidget">
+        <button class="chat-widget__btn" id="chatToggle" aria-label="AI-ассистент">
+            <svg class="chat-widget__icon chat-widget__icon--open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 0 1 1.037-.443 48.282 48.282 0 0 0 5.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/></svg>
+            <svg class="chat-widget__icon chat-widget__icon--close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 18L18 6M6 6l12 12"/></svg>
+            <span class="chat-widget__badge" id="chatBadge"></span>
+        </button>
+        <div class="chat-widget__window" id="chatWindow">
+            <div class="chat-widget__header">
+                <div class="chat-widget__header-info">
+                    <div class="chat-widget__avatar">AI</div>
+                    <div>
+                        <div class="chat-widget__name">XanovCompany</div>
+                        <div class="chat-widget__status"><span class="chat-widget__dot"></span>Онлайн</div>
+                    </div>
+                </div>
+                <button class="chat-widget__close" id="chatClose">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="chat-widget__messages" id="chatMessages">
+                <div class="chat-msg chat-msg--bot">
+                    <p>Привет! Я AI-ассистент XanovCompany. Отвечу на вопросы про AI-агентов, автоматизацию и готовые решения.</p>
+                </div>
+            </div>
+            <div class="chat-widget__input-wrap">
+                <input type="text" class="chat-widget__input" id="chatInput" placeholder="Написать сообщение..." autocomplete="off">
+                <button class="chat-widget__send" id="chatSend">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script src="i18n.js"></script>
     <script src="script.js"></script>
+    <script src="chat.js"></script>
 </body>
 </html>
