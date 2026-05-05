@@ -180,4 +180,9 @@
 
     // Восстанавливаем историю при загрузке страницы
     restoreHistory();
+
+    // Показываем кнопку заказа если есть история и последнее сообщение от бота
+    if (chatHistory.length > 0 && chatHistory[chatHistory.length - 1].role === 'bot') {
+        setTimeout(() => showOrderButton(), 200);
+    }
 })();
