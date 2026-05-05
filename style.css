@@ -570,11 +570,11 @@ ul {
 }
 
 .section__desc {
-    font-size: 18px;
+    font-size: 17px;
     color: var(--text-secondary);
-    max-width: 560px;
+    max-width: 680px;
     margin: 0 auto;
-    line-height: 1.8;
+    line-height: 1.9;
 }
 
 .section__desc strong {
