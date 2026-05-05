@@ -1,5 +1,5 @@
 (() => {
-    const API_URL = 'https://api.xanov.cloud/chat';
+    const API_URL = 'https://api.xanov.cloud/chat';  // fallback: http://72.61.191.110:8000/chat
 
     // Генерируем или достаём session_id из localStorage
     function getSessionId() {
@@ -107,7 +107,7 @@
 
             const data = await res.json();
             removeTyping();
-            addMessage(data.reply || 'Ошибка. Попробуйте ещё раз.', 'bot');
+            addMessage(data.reply || data.response || data.message || 'Ошибка. Попробуйте ещё раз.', 'bot');
 
             // Если заказ — показываем уведомление
             if (data.order_mode) {
