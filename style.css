@@ -2035,6 +2035,31 @@ ul {
 .chat-widget__send:hover { transform: scale(1.05); }
 .chat-widget__send:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
+.chat-order-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 4px;
+}
+
+.chat-order-btn {
+    background: var(--accent-gradient);
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    padding: 8px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: var(--font);
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 16px rgba(124, 58, 237, 0.3);
+}
+
+.chat-order-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
+}
+
 @media (max-width: 480px) {
     .chat-widget { bottom: 16px; right: 16px; }
     .chat-widget__window { width: calc(100vw - 32px); right: -4px; }

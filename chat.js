@@ -112,6 +112,21 @@
         if (el) el.remove();
     }
 
+    function showOrderButton() {
+        if (document.getElementById('orderBtn')) return;
+        const wrap = document.createElement('div');
+        wrap.className = 'chat-order-wrap';
+        wrap.id = 'orderBtn';
+        wrap.innerHTML = '<button class="chat-order-btn">🛒 Хочу заказать</button>';
+        wrap.querySelector('button').addEventListener('click', () => {
+            wrap.remove();
+            input.value = 'Хочу заказать';
+            sendMessage();
+        });
+        messages.appendChild(wrap);
+        scrollToBottom();
+    }
+
     async function sendMessage() {
         const text = input.value.trim();
         if (!text || isLoading) return;
@@ -147,6 +162,8 @@
                 setTimeout(() => {
                     renderMessage('Менеджер свяжется с вами в Telegram в течение часа.', 'bot');
                 }, 600);
+            } else {
+                setTimeout(() => showOrderButton(), 400);
             }
 
         } catch {
