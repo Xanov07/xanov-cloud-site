@@ -945,6 +945,12 @@ ul {
     background: linear-gradient(135deg, rgba(124,58,237,0.08) 0%, rgba(59,130,246,0.05) 100%);
 }
 
+.agent-card--custom {
+    border-color: rgba(255,255,255,0.15);
+    background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(124,58,237,0.06) 100%);
+    grid-column: 1 / -1;
+}
+
 .agent-card__popular {
     position: absolute;
     top: 16px;
