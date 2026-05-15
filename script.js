@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { sel: '.mobile-menu__nav .btn--primary', key: 'nav_cta' },
         // Hero
         { sel: '.hero__badge', key: 'hero_badge', html: true, prefix: '<span class="hero__badge-dot"></span> ' },
-        { sel: '.hero__title', key: null, custom: (t) => `${t.hero_title_1}<br>${t.hero_title_2}<span class="gradient-text">${t.hero_title_accent}</span>` },
+        { sel: '.hero__title', key: null, custom: (t) => `<span class="gradient-text">${t.hero_title_1}</span><br>${t.hero_title_2}${t.hero_title_accent}` },
         { sel: '.hero__subtitle', key: 'hero_subtitle' },
         { sel: '.hero__actions .btn--primary', key: 'hero_btn_start', html: true, suffix: ' <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>' },
         { sel: '.hero__actions .btn--ghost', key: 'hero_btn_cases' },
