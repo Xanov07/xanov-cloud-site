@@ -381,8 +381,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // About
         { sel: '#about .section__tag', key: 'about_tag' },
         { sel: '.about__title', key: 'about_title' },
-        { sel: '.about__text:nth-child(3)', key: 'about_text1' },
-        { sel: '.about__text:nth-child(4)', key: 'about_text2' },
+        { sel: '.about__text:nth-child(4)', key: 'about_text1' },
+        { sel: '.about__text:nth-child(5)', key: 'about_text2' },
         // Contact
         { sel: '#contact .section__tag', key: 'contact_tag' },
         { sel: '.contact__title', key: 'contact_title', html: true },
@@ -451,13 +451,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const nameKey = `review${i}_name`;
             const avatarEl = document.querySelector(`.review-card:nth-child(${i}) .review-card__avatar`);
             if (avatarEl && t[nameKey]) avatarEl.textContent = t[nameKey].charAt(0).toUpperCase();
-        });
-
-        // Price prefix "от" / "from" / "desde" etc.
-        const pricePrefix = t.price_prefix || '';
-        document.querySelectorAll('.agent-card__price').forEach(el => {
-            const textNode = Array.from(el.childNodes).find(n => n.nodeType === 3);
-            if (textNode) textNode.textContent = pricePrefix + ' ';
         });
     }
 
