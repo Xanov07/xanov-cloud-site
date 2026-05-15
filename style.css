@@ -948,41 +948,52 @@ ul {
 .agent-card--custom {
     grid-column: 1 / -1;
     border-color: var(--accent-1);
-    background: linear-gradient(135deg, rgba(124,58,237,0.12) 0%, rgba(59,130,246,0.08) 100%);
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: auto auto auto;
-    align-items: start;
-    gap: 0 40px;
+    background: linear-gradient(135deg, rgba(124,58,237,0.15) 0%, rgba(59,130,246,0.1) 100%);
+    box-shadow: 0 0 40px rgba(124,58,237,0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 48px 40px;
+    gap: 16px;
 }
 
 .agent-card--custom .agent-card__icon {
-    grid-column: 1;
+    width: 56px;
+    height: 56px;
+    background: var(--accent-gradient);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+}
+
+.agent-card--custom .agent-card__icon svg {
+    stroke: #fff;
 }
 
 .agent-card--custom .agent-card__title {
-    grid-column: 1;
-    font-size: 28px;
+    font-size: 32px;
+    font-weight: 800;
 }
 
 .agent-card--custom .agent-card__desc {
-    grid-column: 1;
-    max-width: 600px;
+    max-width: 640px;
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.6;
 }
 
 .agent-card--custom .agent-card__price {
-    grid-column: 2;
-    grid-row: 1 / 4;
-    align-self: center;
-    font-size: 42px;
-    white-space: nowrap;
+    font-size: 48px;
+    font-weight: 800;
+    margin: 8px 0;
 }
 
 .agent-card--custom .btn {
-    grid-column: 2;
-    grid-row: 4;
-    min-width: 220px;
-    align-self: end;
+    min-width: 260px;
+    margin-top: 4px;
 }
 
 .agent-card__popular {
