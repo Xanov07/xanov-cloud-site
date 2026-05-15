@@ -1245,6 +1245,9 @@ ul {
     font-size: 22px;
     font-weight: 700;
     margin-bottom: 12px;
+    min-height: 2.6em;
+    display: flex;
+    align-items: flex-start;
 }
 
 .solution-card__desc {
