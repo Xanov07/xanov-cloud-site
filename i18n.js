@@ -181,6 +181,15 @@ const translations = {
         review_role_ph: "Ваша должность / компания",
         review_text_ph: "Ваш отзыв",
         review_btn: "Отправить отзыв",
+        review1_text: "Автоматизация обработки заявок заняла 3 дня. Теперь экономим 4 часа в день на рутине. Рекомендую!",
+        review1_name: "Алексей М.",
+        review1_role: "Владелец интернет-магазина",
+        review2_text: "Заказывал бот для аналитики продаж. Всё чётко, быстро, на связи. Бот работает без сбоев уже 3 месяца.",
+        review2_name: "Дмитрий К.",
+        review2_role: "Предприниматель",
+        review3_text: "Сайт получился отличный — современный, быстрый, конверсия выросла в 2 раза. Тимур понимает маркетинг.",
+        review3_name: "Мария С.",
+        review3_role: "Маркетолог",
 
         // About
         about_tag: "О компании",
@@ -206,9 +215,30 @@ const translations = {
         form_message: "Опишите вашу задачу",
         form_btn: "Отправить заявку",
 
+        // Price prefix
+        price_prefix: "от",
+
+        // Solutions (match HTML order: 1=news, 2=viral, 3=email, 4=analytics, 5=leads, 6=funnel)
+        solution1_badge: "Новинка",
+        solution1_title: "Новостной канал-бот",
+        solution1_price: "от $130",
+        solution2_badge: "Новинка",
+        solution2_title: "Вирусный контент бот",
+        solution2_price: "от $150",
+        solution3_title: "AI Email-ассистент",
+        solution3_price: "от $150",
+        solution4_badge: "Популярное",
+        solution4_title: "Бот аналитики продаж",
+        solution4_price: "от $160",
+        solution5_badge: "Популярное",
+        solution5_title: "Лид-менеджер",
+        solution5_price: "от $160",
+        solution6_title: "Воронка продаж в Telegram",
+        solution6_price: "от $175",
+
         // Footer
         footer_copy: "© 2025 XanovCompany. Все права защищены.",
-        footer_services: "Услуги",
+        footer_services: "AI-агенты",
         footer_cases: "Кейсы",
         footer_solutions: "Решения",
         footer_contacts: "Контакты"
@@ -384,6 +414,15 @@ const translations = {
         review_role_ph: "Your role / company",
         review_text_ph: "Your review",
         review_btn: "Submit review",
+        review1_text: "Request processing automation took 3 days. We now save 4 hours a day on routine. Highly recommend!",
+        review1_name: "Alexey M.",
+        review1_role: "Online store owner",
+        review2_text: "Ordered a sales analytics bot. Everything clear, fast, responsive. Bot has been running flawlessly for 3 months.",
+        review2_name: "Dmitry K.",
+        review2_role: "Entrepreneur",
+        review3_text: "The website turned out great — modern, fast, conversion doubled. Timur understands marketing.",
+        review3_name: "Maria S.",
+        review3_role: "Marketer",
 
         about_tag: "About",
         about_title: "XanovCompany",
@@ -407,8 +446,29 @@ const translations = {
         form_message: "Describe your task",
         form_btn: "Send request",
 
+        // Price prefix
+        price_prefix: "from",
+
+        // Solutions (match HTML order: 1=news, 2=viral, 3=email, 4=analytics, 5=leads, 6=funnel)
+        solution1_badge: "New",
+        solution1_title: "News Channel Bot",
+        solution1_price: "from $130",
+        solution2_badge: "New",
+        solution2_title: "Viral Content Bot",
+        solution2_price: "from $150",
+        solution3_title: "AI Email Assistant",
+        solution3_price: "from $150",
+        solution4_badge: "Popular",
+        solution4_title: "Sales Analytics Bot",
+        solution4_price: "from $160",
+        solution5_badge: "Popular",
+        solution5_title: "Lead Manager",
+        solution5_price: "from $160",
+        solution6_title: "Telegram Sales Funnel",
+        solution6_price: "from $175",
+
         footer_copy: "© 2025 XanovCompany. All rights reserved.",
-        footer_services: "Services",
+        footer_services: "AI Agents",
         footer_cases: "Cases",
         footer_solutions: "Solutions",
         footer_contacts: "Contact"
@@ -584,6 +644,15 @@ const translations = {
         review_role_ph: "Su cargo / empresa",
         review_text_ph: "Su reseña",
         review_btn: "Enviar reseña",
+        review1_text: "La automatización del procesamiento de solicitudes tomó 3 días. Ahora ahorramos 4 horas al día. ¡Lo recomiendo!",
+        review1_name: "Alexey M.",
+        review1_role: "Propietario de tienda online",
+        review2_text: "Pedí un bot de análisis de ventas. Todo claro, rápido, disponible. El bot funciona sin fallos desde hace 3 meses.",
+        review2_name: "Dmitry K.",
+        review2_role: "Empresario",
+        review3_text: "El sitio quedó excelente — moderno, rápido, la conversión se duplicó. Timur entiende el marketing.",
+        review3_name: "Maria S.",
+        review3_role: "Especialista en marketing",
 
         about_tag: "Empresa",
         about_title: "XanovCompany",
@@ -607,8 +676,29 @@ const translations = {
         form_message: "Describa su tarea",
         form_btn: "Enviar solicitud",
 
+        // Price prefix
+        price_prefix: "desde",
+
+        // Solutions (match HTML order: 1=news, 2=viral, 3=email, 4=analytics, 5=leads, 6=funnel)
+        solution1_badge: "Nuevo",
+        solution1_title: "Bot de canal de noticias",
+        solution1_price: "desde $130",
+        solution2_badge: "Nuevo",
+        solution2_title: "Bot de contenido viral",
+        solution2_price: "desde $150",
+        solution3_title: "Asistente Email IA",
+        solution3_price: "desde $150",
+        solution4_badge: "Popular",
+        solution4_title: "Bot de analítica de ventas",
+        solution4_price: "desde $160",
+        solution5_badge: "Popular",
+        solution5_title: "Gestor de leads",
+        solution5_price: "desde $160",
+        solution6_title: "Embudo de ventas en Telegram",
+        solution6_price: "desde $175",
+
         footer_copy: "© 2025 XanovCompany. Todos los derechos reservados.",
-        footer_services: "Servicios",
+        footer_services: "Agentes IA",
         footer_cases: "Casos",
         footer_solutions: "Soluciones",
         footer_contacts: "Contacto"
@@ -784,6 +874,15 @@ const translations = {
         review_role_ph: "Ваша посада / компанія",
         review_text_ph: "Ваш відгук",
         review_btn: "Надіслати відгук",
+        review1_text: "Автоматизація обробки заявок зайняла 3 дні. Тепер економимо 4 години на день. Рекомендую!",
+        review1_name: "Олексій М.",
+        review1_role: "Власник інтернет-магазину",
+        review2_text: "Замовляв бот для аналітики продажів. Все чітко, швидко, на зв'язку. Бот працює без збоїв вже 3 місяці.",
+        review2_name: "Дмитро К.",
+        review2_role: "Підприємець",
+        review3_text: "Сайт вийшов чудовий — сучасний, швидкий, конверсія зросла вдвічі. Тімур розуміє маркетинг.",
+        review3_name: "Марія С.",
+        review3_role: "Маркетолог",
 
         about_tag: "Про компанію",
         about_title: "XanovCompany",
@@ -807,8 +906,29 @@ const translations = {
         form_message: "Опишіть вашу задачу",
         form_btn: "Надіслати заявку",
 
+        // Price prefix
+        price_prefix: "від",
+
+        // Solutions (match HTML order: 1=news, 2=viral, 3=email, 4=analytics, 5=leads, 6=funnel)
+        solution1_badge: "Новинка",
+        solution1_title: "Бот новинного каналу",
+        solution1_price: "від $130",
+        solution2_badge: "Новинка",
+        solution2_title: "Бот вірусного контенту",
+        solution2_price: "від $150",
+        solution3_title: "AI Email-асистент",
+        solution3_price: "від $150",
+        solution4_badge: "Популярне",
+        solution4_title: "Бот аналітики продажів",
+        solution4_price: "від $160",
+        solution5_badge: "Популярне",
+        solution5_title: "Лід-менеджер",
+        solution5_price: "від $160",
+        solution6_title: "Воронка продажів у Telegram",
+        solution6_price: "від $175",
+
         footer_copy: "© 2025 XanovCompany. Всі права захищені.",
-        footer_services: "Послуги",
+        footer_services: "AI-агенти",
         footer_cases: "Кейси",
         footer_solutions: "Рішення",
         footer_contacts: "Контакти"

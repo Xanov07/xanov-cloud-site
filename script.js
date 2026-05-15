@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mapping: CSS selector → i18n key (text or innerHTML)
     const i18nMap = [
         // Nav
-        { sel: '.nav .nav__link[href="#services"]', key: 'nav_services' },
+        { sel: '.nav .nav__link[href="#agents"]', key: 'nav_services' },
         { sel: '.nav .nav__link[href="#cases"]', key: 'nav_cases' },
         { sel: '.nav .nav__link[href="#solutions"]', key: 'nav_solutions' },
         { sel: '.nav .nav__link[href="#process"]', key: 'nav_process' },
@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { sel: '.nav .nav__link[href="#about"]', key: 'nav_about' },
         { sel: '.header__cta', key: 'nav_cta' },
         // Mobile nav
-        { sel: '.mobile-menu__link[href="#services"]', key: 'nav_services' },
+        { sel: '.mobile-menu__link[href="#agents"]', key: 'nav_services' },
         { sel: '.mobile-menu__link[href="#cases"]', key: 'nav_cases' },
         { sel: '.mobile-menu__link[href="#solutions"]', key: 'nav_solutions' },
         { sel: '.mobile-menu__link[href="#process"]', key: 'nav_process' },
@@ -252,12 +252,16 @@ document.addEventListener('DOMContentLoaded', () => {
         { sel: '.agent-card--custom .btn', key: 'agent4_btn' },
         { sel: '.agents__addons-title', key: 'addons_title' },
         { sel: '.addon-card:nth-child(1) .addon-card__name', key: 'addon1_name' },
+        { sel: '.addon-card:nth-child(1) .addon-card__price', key: 'addon1_price' },
         { sel: '.addon-card:nth-child(1) .addon-card__desc', key: 'addon1_desc' },
         { sel: '.addon-card:nth-child(2) .addon-card__name', key: 'addon2_name' },
+        { sel: '.addon-card:nth-child(2) .addon-card__price', key: 'addon2_price' },
         { sel: '.addon-card:nth-child(2) .addon-card__desc', key: 'addon2_desc' },
         { sel: '.addon-card:nth-child(3) .addon-card__name', key: 'addon3_name' },
+        { sel: '.addon-card:nth-child(3) .addon-card__price', key: 'addon3_price' },
         { sel: '.addon-card:nth-child(3) .addon-card__desc', key: 'addon3_desc' },
         { sel: '.addon-card:nth-child(4) .addon-card__name', key: 'addon4_name' },
+        { sel: '.addon-card:nth-child(4) .addon-card__price', key: 'addon4_price' },
         { sel: '.addon-card:nth-child(4) .addon-card__desc', key: 'addon4_desc' },
         { sel: '.addon-card:nth-child(4) .addon-card__promo', key: 'addon4_promo' },
         // Services
@@ -325,24 +329,28 @@ document.addEventListener('DOMContentLoaded', () => {
         { sel: '#solutions .section__tag', key: 'solutions_tag' },
         { sel: '#solutions .section__title', key: 'solutions_title' },
         { sel: '#solutions .section__desc', key: 'solutions_desc' },
-        { sel: '.solution-card:nth-child(1) .solution-card__badge', key: 'solution1_badge' },
-        { sel: '.solution-card:nth-child(1) .solution-card__title', key: 'solution1_title' },
-        { sel: '.solution-card:nth-child(1) .solution-card__desc', key: 'solution1_desc' },
-        { sel: '.solution-card:nth-child(1) .solution-card__price-value', key: 'solution1_price' },
-        { sel: '.solution-card:nth-child(1) .btn--outline', key: 'solution_btn' },
-        { sel: '.solution-card:nth-child(2) .solution-card__badge', key: 'solution2_badge' },
-        { sel: '.solution-card:nth-child(2) .solution-card__title', key: 'solution2_title' },
-        { sel: '.solution-card:nth-child(2) .solution-card__desc', key: 'solution2_desc' },
-        { sel: '.solution-card:nth-child(2) .solution-card__price-value', key: 'solution2_price' },
-        { sel: '.solution-card:nth-child(2) .btn--outline', key: 'solution_btn' },
-        { sel: '.solution-card:nth-child(3) .solution-card__title', key: 'solution3_title' },
-        { sel: '.solution-card:nth-child(3) .solution-card__desc', key: 'solution3_desc' },
-        { sel: '.solution-card:nth-child(3) .solution-card__price-value', key: 'solution3_price' },
-        { sel: '.solution-card:nth-child(3) .btn--outline', key: 'solution_btn' },
-        { sel: '.solution-card:nth-child(4) .solution-card__title', key: 'solution4_title' },
-        { sel: '.solution-card:nth-child(4) .solution-card__desc', key: 'solution4_desc' },
-        { sel: '.solution-card:nth-child(4) .solution-card__price-value', key: 'solution4_price' },
-        { sel: '.solution-card:nth-child(4) .btn--outline', key: 'solution_btn' },
+        { sel: '.solutions__grid .solution-card:nth-child(1) .solution-card__badge', key: 'solution1_badge' },
+        { sel: '.solutions__grid .solution-card:nth-child(1) .solution-card__title', key: 'solution1_title' },
+        { sel: '.solutions__grid .solution-card:nth-child(1) .solution-card__price-value', key: 'solution1_price' },
+        { sel: '.solutions__grid .solution-card:nth-child(1) .btn--outline', key: 'solution_btn' },
+        { sel: '.solutions__grid .solution-card:nth-child(2) .solution-card__badge', key: 'solution2_badge' },
+        { sel: '.solutions__grid .solution-card:nth-child(2) .solution-card__title', key: 'solution2_title' },
+        { sel: '.solutions__grid .solution-card:nth-child(2) .solution-card__price-value', key: 'solution2_price' },
+        { sel: '.solutions__grid .solution-card:nth-child(2) .btn--outline', key: 'solution_btn' },
+        { sel: '.solutions__grid .solution-card:nth-child(3) .solution-card__title', key: 'solution3_title' },
+        { sel: '.solutions__grid .solution-card:nth-child(3) .solution-card__price-value', key: 'solution3_price' },
+        { sel: '.solutions__grid .solution-card:nth-child(3) .btn--outline', key: 'solution_btn' },
+        { sel: '.solutions__grid .solution-card:nth-child(4) .solution-card__badge', key: 'solution4_badge' },
+        { sel: '.solutions__grid .solution-card:nth-child(4) .solution-card__title', key: 'solution4_title' },
+        { sel: '.solutions__grid .solution-card:nth-child(4) .solution-card__price-value', key: 'solution4_price' },
+        { sel: '.solutions__grid .solution-card:nth-child(4) .btn--outline', key: 'solution_btn' },
+        { sel: '.solutions__grid .solution-card:nth-child(5) .solution-card__badge', key: 'solution5_badge' },
+        { sel: '.solutions__grid .solution-card:nth-child(5) .solution-card__title', key: 'solution5_title' },
+        { sel: '.solutions__grid .solution-card:nth-child(5) .solution-card__price-value', key: 'solution5_price' },
+        { sel: '.solutions__grid .solution-card:nth-child(5) .btn--outline', key: 'solution_btn' },
+        { sel: '.solutions__grid .solution-card:nth-child(6) .solution-card__title', key: 'solution6_title' },
+        { sel: '.solutions__grid .solution-card:nth-child(6) .solution-card__price-value', key: 'solution6_price' },
+        { sel: '.solutions__grid .solution-card:nth-child(6) .btn--outline', key: 'solution_btn' },
         // Process
         { sel: '#process .section__tag', key: 'process_tag' },
         { sel: '#process .section__title', key: 'process_title' },
@@ -359,6 +367,15 @@ document.addEventListener('DOMContentLoaded', () => {
         { sel: '#reviews .section__tag', key: 'reviews_tag' },
         { sel: '#reviews .section__title', key: 'reviews_title' },
         { sel: '#reviews .section__desc', key: 'reviews_desc' },
+        { sel: '.review-card:nth-child(1) .review-card__text', key: 'review1_text' },
+        { sel: '.review-card:nth-child(1) .review-card__name', key: 'review1_name' },
+        { sel: '.review-card:nth-child(1) .review-card__role', key: 'review1_role' },
+        { sel: '.review-card:nth-child(2) .review-card__text', key: 'review2_text' },
+        { sel: '.review-card:nth-child(2) .review-card__name', key: 'review2_name' },
+        { sel: '.review-card:nth-child(2) .review-card__role', key: 'review2_role' },
+        { sel: '.review-card:nth-child(3) .review-card__text', key: 'review3_text' },
+        { sel: '.review-card:nth-child(3) .review-card__name', key: 'review3_name' },
+        { sel: '.review-card:nth-child(3) .review-card__role', key: 'review3_role' },
         { sel: '.reviews__form-title', key: 'review_form_title' },
         { sel: '#reviewForm .btn--primary', key: 'review_btn' },
         // About
@@ -372,7 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { sel: '.contact__desc', key: 'contact_desc' },
         // Footer
         { sel: '.footer__copy', key: 'footer_copy' },
-        { sel: '.footer__links a[href="#services"]', key: 'footer_services' },
+        { sel: '.footer__links a[href="#agents"]', key: 'footer_services' },
         { sel: '.footer__links a[href="#cases"]', key: 'footer_cases' },
         { sel: '.footer__links a[href="#solutions"]', key: 'footer_solutions' },
         { sel: '.footer__links a[href="#contact"]', key: 'footer_contacts' },
@@ -428,6 +445,20 @@ document.addEventListener('DOMContentLoaded', () => {
         // Contact form submit button
         const formBtn = document.querySelector('#contactForm button[type="submit"]');
         if (formBtn) formBtn.innerHTML = t.form_btn + ' <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+
+        // Update review avatars (first letter of name)
+        [1, 2, 3].forEach(i => {
+            const nameKey = `review${i}_name`;
+            const avatarEl = document.querySelector(`.review-card:nth-child(${i}) .review-card__avatar`);
+            if (avatarEl && t[nameKey]) avatarEl.textContent = t[nameKey].charAt(0).toUpperCase();
+        });
+
+        // Price prefix "от" / "from" / "desde" etc.
+        const pricePrefix = t.price_prefix || '';
+        document.querySelectorAll('.agent-card__price').forEach(el => {
+            const textNode = Array.from(el.childNodes).find(n => n.nodeType === 3);
+            if (textNode) textNode.textContent = pricePrefix + ' ';
+        });
     }
 
     langBtn.addEventListener('click', (e) => {
@@ -444,7 +475,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('click', () => langDropdown.classList.remove('active'));
 
-    if (currentLang !== 'ru') applyLang(currentLang);
+    applyLang(currentLang);
 
     // --- SOLUTIONS FILTERS ---
     const filterBtns = document.querySelectorAll('.filter-btn');
