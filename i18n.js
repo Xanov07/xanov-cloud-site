@@ -194,8 +194,8 @@ const translations = {
         // About
         about_tag: "О компании",
         about_title: "XanovCompany",
-        about_text1: "Мы — команда специалистов по AI-агентам, автоматизациям и разработке. Объединяем маркетинг, технологии и искусственный интеллект, чтобы создавать решения, которые реально работают на ваш бизнес.",
-        about_text2: "Создаём кастомных AI-агентов на базе передовых языковых моделей, строим автоматизации, разрабатываем сайты и приложения. Каждый проект — решение конкретной бизнес-задачи с измеримым результатом.",
+        about_text1: "Мы создаём AI-агентов и готовые решения под ваши задачи. Объединяем маркетинг, технологии и искусственный интеллект, чтобы автоматизировать то, что отнимает ваше время и деньги.",
+        about_text2: "Каждый проект начинается с понимания вашего бизнеса. Мы не просто пишем код — мы строим инструменты, которые работают на результат 24/7 без вашего участия.",
 
         // Contact
         contact_tag: "Контакты",
@@ -426,8 +426,8 @@ const translations = {
 
         about_tag: "About",
         about_title: "XanovCompany",
-        about_text1: "We are a team of AI agents, automation and development specialists. We combine marketing, technology and artificial intelligence to create solutions that truly work for your business.",
-        about_text2: "We build custom AI agents powered by advanced language models, create automations, develop websites and applications. Every project is a solution to a specific business problem with measurable results.",
+        about_text1: "We build AI agents and ready-made solutions for your tasks. We combine marketing, technology and artificial intelligence to automate what takes your time and money.",
+        about_text2: "Every project starts with understanding your business. We don't just write code — we build tools that deliver results 24/7 without your involvement.",
 
         contact_tag: "Contact",
         contact_title: "Let's discuss<br>your project",
@@ -656,8 +656,8 @@ const translations = {
 
         about_tag: "Empresa",
         about_title: "XanovCompany",
-        about_text1: "Somos un equipo de especialistas en automatización IA y desarrollo. Combinamos marketing, tecnología e inteligencia artificial para crear soluciones que realmente funcionan para su negocio.",
-        about_text2: "Nos especializamos en automatizaciones n8n, desarrollo web, aplicaciones y chatbots. Cada proyecto no es solo código — es una solución a un problema empresarial específico con resultados medibles.",
+        about_text1: "Creamos agentes IA y soluciones listas para sus tareas. Combinamos marketing, tecnología e inteligencia artificial para automatizar lo que consume su tiempo y dinero.",
+        about_text2: "Cada proyecto comienza con entender su negocio. No solo escribimos código — construimos herramientas que generan resultados 24/7 sin su intervención.",
 
         contact_tag: "Contacto",
         contact_title: "Hablemos de<br>su proyecto",
@@ -886,8 +886,8 @@ const translations = {
 
         about_tag: "Про компанію",
         about_title: "XanovCompany",
-        about_text1: "Ми — команда спеціалістів з AI-автоматизацій та розробки. Поєднуємо маркетинг, технології та штучний інтелект, щоб створювати рішення, які реально працюють на ваш бізнес.",
-        about_text2: "Спеціалізуємось на автоматизаціях через n8n, розробці сайтів, додатків та чатботів. Кожен проєкт — це не просто код, а рішення конкретної бізнес-задачі з вимірюваним результатом.",
+        about_text1: "Ми створюємо AI-агентів та готові рішення під ваші задачі. Поєднуємо маркетинг, технології та штучний інтелект, щоб автоматизувати те, що забирає ваш час і гроші.",
+        about_text2: "Кожен проєкт починається з розуміння вашого бізнесу. Ми не просто пишемо код — ми будуємо інструменти, які працюють на результат 24/7 без вашої участі.",
 
         contact_tag: "Контакти",
         contact_title: "Давайте обговоримо<br>ваш проєкт",
