@@ -381,8 +381,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // About
         { sel: '#about .section__tag', key: 'about_tag' },
         { sel: '.about__title', key: 'about_title' },
-        { sel: '.about__text:nth-child(4)', key: 'about_text1' },
-        { sel: '.about__text:nth-child(5)', key: 'about_text2' },
+        { sel: '#aboutText1', key: 'about_text1' },
+        { sel: '#aboutText2', key: 'about_text2' },
         // Contact
         { sel: '#contact .section__tag', key: 'contact_tag' },
         { sel: '.contact__title', key: 'contact_title', html: true },

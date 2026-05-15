@@ -1058,90 +1058,106 @@ ul {
     color: var(--text-primary);
 }
 
-.agents__addons { }
+.agents__addons {
+    margin-top: 48px;
+}
 
 .agents__addons-title {
-    font-size: 22px;
+    font-size: 26px;
     font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 24px;
+    color: var(--text);
+    margin-bottom: 28px;
     text-align: center;
 }
 
 .agents__addons-grid {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 16px;
-    align-items: stretch;
 }
 
 .addon-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    padding: 20px;
+    padding: 28px 24px;
     display: flex;
-    gap: 16px;
-    align-items: flex-start;
+    flex-direction: column;
+    gap: 0;
     transition: var(--transition);
-    flex: 1;
+    position: relative;
+    overflow: hidden;
 }
 
-.addon-card:hover { border-color: var(--border-hover); }
+.addon-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--accent-gradient);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 0;
+}
+
+.addon-card:hover {
+    border-color: rgba(124, 58, 237, 0.4);
+    transform: translateY(-4px);
+}
+
+.addon-card:hover::before { opacity: 0.04; }
 
 .addon-card__icon {
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-    min-height: 40px;
+    width: 52px;
+    height: 52px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: rgba(124, 58, 237, 0.12);
-    border-radius: 10px;
+    border-radius: var(--radius-md);
     color: var(--accent-1);
-    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .addon-card__icon svg {
-    width: 20px;
-    height: 20px;
-    min-width: 20px;
-    display: block;
-    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
 }
 
 .addon-card__body {
     flex: 1;
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 1;
 }
 
 .addon-card__header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 6px;
+    flex-direction: column;
     gap: 8px;
+    margin-bottom: 10px;
 }
 
 .addon-card__name {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text-primary);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
 }
 
 .addon-card__price {
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 22px;
+    font-weight: 800;
     color: var(--accent-1);
     white-space: nowrap;
 }
 
 .addon-card__desc {
-    font-size: 13px;
-    color: var(--text-muted);
-    line-height: 1.5;
-    margin-top: 4px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
 }
 
 .addon-card__icon--green {
@@ -1155,14 +1171,18 @@ ul {
 
 .addon-card--promo {
     border-color: rgba(34, 197, 94, 0.3);
-    background: linear-gradient(135deg, rgba(34,197,94,0.05) 0%, var(--bg-card) 100%);
+    background: linear-gradient(160deg, rgba(34,197,94,0.06) 0%, var(--bg-card) 60%);
+}
+
+.addon-card--promo:hover {
+    border-color: rgba(34, 197, 94, 0.5);
 }
 
 .addon-card__promo {
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
     color: #22c55e;
-    margin-top: 6px;
+    margin-top: 10px;
 }
 
 /* --- SOLUTIONS --- */
@@ -1222,9 +1242,9 @@ ul {
 }
 
 .solution-card__title {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .solution-card__desc {
@@ -1711,10 +1731,7 @@ ul {
         grid-template-columns: repeat(2, 1fr);
     }
     .agents__addons-grid {
-        flex-wrap: wrap;
-    }
-    .addon-card {
-        flex: 1 1 calc(50% - 8px);
+        grid-template-columns: repeat(2, 1fr);
     }
     .solutions__grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1776,10 +1793,7 @@ ul {
     }
 
     .agents__addons-grid {
-        flex-direction: column;
-    }
-    .addon-card {
-        flex: 1 1 auto;
+        grid-template-columns: 1fr;
     }
 
     .cases__grid {
