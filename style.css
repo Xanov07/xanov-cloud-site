@@ -946,9 +946,43 @@ ul {
 }
 
 .agent-card--custom {
-    border-color: rgba(255,255,255,0.15);
-    background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(124,58,237,0.06) 100%);
     grid-column: 1 / -1;
+    border-color: var(--accent-1);
+    background: linear-gradient(135deg, rgba(124,58,237,0.12) 0%, rgba(59,130,246,0.08) 100%);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto auto;
+    align-items: start;
+    gap: 0 40px;
+}
+
+.agent-card--custom .agent-card__icon {
+    grid-column: 1;
+}
+
+.agent-card--custom .agent-card__title {
+    grid-column: 1;
+    font-size: 28px;
+}
+
+.agent-card--custom .agent-card__desc {
+    grid-column: 1;
+    max-width: 600px;
+}
+
+.agent-card--custom .agent-card__price {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    align-self: center;
+    font-size: 42px;
+    white-space: nowrap;
+}
+
+.agent-card--custom .btn {
+    grid-column: 2;
+    grid-row: 4;
+    min-width: 220px;
+    align-self: end;
 }
 
 .agent-card__popular {
