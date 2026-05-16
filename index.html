@@ -605,13 +605,21 @@
                         <div class="chat-widget__status"><span class="chat-widget__dot"></span>Онлайн</div>
                     </div>
                 </div>
-                <button class="chat-widget__close" id="chatClose">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 18L18 6M6 6l12 12"/></svg>
-                </button>
+                <div class="chat-widget__header-actions">
+                    <div class="chat-lang-switcher" id="chatLangSwitcher">
+                        <button class="chat-lang-btn active" data-lang="ru">RU</button>
+                        <button class="chat-lang-btn" data-lang="en">EN</button>
+                        <button class="chat-lang-btn" data-lang="es">ES</button>
+                        <button class="chat-lang-btn" data-lang="uk">UA</button>
+                    </div>
+                    <button class="chat-widget__close" id="chatClose">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 18L18 6M6 6l12 12"/></svg>
+                    </button>
+                </div>
             </div>
             <div class="chat-widget__messages" id="chatMessages">
                 <div class="chat-msg chat-msg--bot" id="chatGreeting">
-                    <p>Привет! Я твой персональный ассистент XanovCompany — помогу разобраться с автоматизацией и подобрать решение под твой бизнес. Спрашивай!</p>
+                    <p>Привет! Я ассистент XanovCompany. Расскажите, что вас интересует?</p>
                 </div>
             </div>
             <div class="chat-widget__input-wrap">

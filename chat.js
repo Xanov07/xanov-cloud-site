@@ -46,31 +46,32 @@
     const sendBtn  = document.getElementById('chatSend');
     const badge    = document.getElementById('chatBadge');
     const greeting = document.getElementById('chatGreeting');
+    const chatLangBtns = document.querySelectorAll('.chat-lang-btn');
 
     const chatI18n = {
         ru: {
-            greeting: 'Привет! Я ассистент XanovCompany — помогу подобрать решение под вашу задачу. Расскажите, что хотите автоматизировать?',
+            greeting: 'Привет! Я ассистент XanovCompany. Расскажите, что вас интересует?',
             placeholder: 'Написать сообщение...',
             orderBtn: '🛒 Хочу заказать',
             noConnection: 'Нет соединения. Попробуйте позже.',
             error: 'Ошибка. Попробуйте ещё раз.'
         },
         en: {
-            greeting: 'Hi! I\'m XanovCompany assistant — I\'ll help you find the right solution. What would you like to automate?',
+            greeting: 'Hi! I\'m XanovCompany assistant. What are you interested in?',
             placeholder: 'Write a message...',
             orderBtn: '🛒 I want to order',
             noConnection: 'No connection. Please try again later.',
             error: 'Error. Please try again.'
         },
         es: {
-            greeting: '¡Hola! Soy el asistente de XanovCompany — te ayudaré a encontrar la solución adecuada. ¿Qué quieres automatizar?',
+            greeting: '¡Hola! Soy el asistente de XanovCompany. ¿Qué te interesa?',
             placeholder: 'Escribe un mensaje...',
             orderBtn: '🛒 Quiero ordenar',
             noConnection: 'Sin conexión. Intenta más tarde.',
             error: 'Error. Inténtalo de nuevo.'
         },
         uk: {
-            greeting: 'Привіт! Я асистент XanovCompany — допоможу підібрати рішення під вашу задачу. Розкажіть, що хочете автоматизувати?',
+            greeting: 'Привіт! Я асистент XanovCompany. Розкажіть, що вас цікавить?',
             placeholder: 'Написати повідомлення...',
             orderBtn: '🛒 Хочу замовити',
             noConnection: 'Немає з\'єднання. Спробуйте пізніше.',
@@ -263,11 +264,39 @@
     restoreHistory();
 
 
+    // Кнопки языка внутри чата
+    function updateChatLangButtons(lang) {
+        chatLangBtns.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+    }
+
+    chatLangBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.dataset.lang;
+            localStorage.setItem('lang', lang);
+            // Синхронизируем с основным переключателем сайта
+            const siteLangDropdown = document.getElementById('langDropdown');
+            if (siteLangDropdown) {
+                const siteBtn = siteLangDropdown.querySelector(`button[data-lang="${lang}"]`);
+                if (siteBtn) siteBtn.click();
+            } else {
+                applyChatLang();
+                updateChatLangButtons(lang);
+            }
+        });
+    });
+
     // Применяем язык при загрузке
     applyChatLang();
+    updateChatLangButtons(localStorage.getItem('lang') || 'ru');
 
     // Следим за сменой языка на сайте
-    const langObserver = new MutationObserver(() => applyChatLang());
+    const langObserver = new MutationObserver(() => {
+        const lang = localStorage.getItem('lang') || 'ru';
+        applyChatLang();
+        updateChatLangButtons(lang);
+    });
     const langBtn = document.getElementById('langBtn');
     if (langBtn) langObserver.observe(langBtn, { childList: true, characterData: true, subtree: true });
 })();
