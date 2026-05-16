@@ -158,11 +158,7 @@
             const reply = data.reply || data.response || data.message || 'Ошибка. Попробуйте ещё раз.';
             renderMessage(reply, 'bot');
 
-            if (data.order_mode) {
-                setTimeout(() => {
-                    renderMessage('Менеджер свяжется с вами в Telegram в течение часа.', 'bot');
-                }, 600);
-            } else {
+            if (!data.order_mode) {
                 setTimeout(() => showOrderButton(), 400);
             }
 
