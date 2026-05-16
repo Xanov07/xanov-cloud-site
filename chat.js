@@ -1,6 +1,7 @@
 (() => {
     const API_URL = 'https://api.xanov.cloud/chat';
-    const MAX_HISTORY = 50; // максимум сообщений в localStorage
+    const MAX_HISTORY = 10;
+    const MAX_DISPLAY = 10;
 
     function getSessionId() {
         let id = localStorage.getItem('xanov_session_id');
@@ -18,9 +19,17 @@
     }
 
     function saveHistory(history) {
-        // Держим только последние MAX_HISTORY сообщений
         const trimmed = history.slice(-MAX_HISTORY);
         localStorage.setItem('xanov_chat_history', JSON.stringify(trimmed));
+    }
+
+    function trimDisplayedMessages() {
+        const msgs = messages.querySelectorAll('.chat-msg:not(#chatGreeting)');
+        if (msgs.length > MAX_DISPLAY) {
+            for (let i = 0; i < msgs.length - MAX_DISPLAY; i++) {
+                msgs[i].remove();
+            }
+        }
     }
 
     function clearHistory() {
@@ -37,6 +46,53 @@
     const sendBtn  = document.getElementById('chatSend');
     const badge    = document.getElementById('chatBadge');
     const greeting = document.getElementById('chatGreeting');
+
+    const chatI18n = {
+        ru: {
+            greeting: 'Привет! Я ассистент XanovCompany — помогу подобрать решение под вашу задачу. Расскажите, что хотите автоматизировать?',
+            placeholder: 'Написать сообщение...',
+            orderBtn: '🛒 Хочу заказать',
+            noConnection: 'Нет соединения. Попробуйте позже.',
+            error: 'Ошибка. Попробуйте ещё раз.'
+        },
+        en: {
+            greeting: 'Hi! I\'m XanovCompany assistant — I\'ll help you find the right solution. What would you like to automate?',
+            placeholder: 'Write a message...',
+            orderBtn: '🛒 I want to order',
+            noConnection: 'No connection. Please try again later.',
+            error: 'Error. Please try again.'
+        },
+        es: {
+            greeting: '¡Hola! Soy el asistente de XanovCompany — te ayudaré a encontrar la solución adecuada. ¿Qué quieres automatizar?',
+            placeholder: 'Escribe un mensaje...',
+            orderBtn: '🛒 Quiero ordenar',
+            noConnection: 'Sin conexión. Intenta más tarde.',
+            error: 'Error. Inténtalo de nuevo.'
+        },
+        uk: {
+            greeting: 'Привіт! Я асистент XanovCompany — допоможу підібрати рішення під вашу задачу. Розкажіть, що хочете автоматизувати?',
+            placeholder: 'Написати повідомлення...',
+            orderBtn: '🛒 Хочу замовити',
+            noConnection: 'Немає з\'єднання. Спробуйте пізніше.',
+            error: 'Помилка. Спробуйте ще раз.'
+        }
+    };
+
+    function getChatLang() {
+        const lang = localStorage.getItem('lang') || 'ru';
+        return chatI18n[lang] || chatI18n.ru;
+    }
+
+    function applyChatLang() {
+        const t = getChatLang();
+        if (input) input.placeholder = t.placeholder;
+        if (greeting) {
+            const p = greeting.querySelector('p');
+            if (p) p.textContent = t.greeting;
+        }
+        const orderBtnEl = document.querySelector('.chat-order-btn');
+        if (orderBtnEl) orderBtnEl.textContent = t.orderBtn;
+    }
 
     let isOpen = false;
     let isLoading = false;
@@ -61,6 +117,7 @@
         if (save) {
             chatHistory.push({ text, role });
             saveHistory(chatHistory);
+            trimDisplayedMessages();
         }
         return div;
     }
@@ -114,13 +171,14 @@
 
     function showOrderButton() {
         if (document.getElementById('orderBtn')) return;
+        const t = getChatLang();
         const wrap = document.createElement('div');
         wrap.className = 'chat-order-wrap';
         wrap.id = 'orderBtn';
-        wrap.innerHTML = '<button class="chat-order-btn">🛒 Хочу заказать</button>';
+        wrap.innerHTML = `<button class="chat-order-btn">${t.orderBtn}</button>`;
         wrap.querySelector('button').addEventListener('click', () => {
             wrap.remove();
-            input.value = 'Хочу заказать';
+            input.value = t.orderBtn.replace('🛒 ', '');
             sendMessage();
         });
         messages.appendChild(wrap);
@@ -155,7 +213,7 @@
             const data = await res.json();
             removeTyping();
 
-            const reply = data.reply || data.response || data.message || 'Ошибка. Попробуйте ещё раз.';
+            const reply = data.reply || data.response || data.message || getChatLang().error;
             renderMessage(reply, 'bot');
 
             if (!data.order_mode) {
@@ -164,7 +222,7 @@
 
         } catch {
             removeTyping();
-            renderMessage('Нет соединения. Попробуйте позже.', 'bot');
+            renderMessage(getChatLang().noConnection, 'bot');
         } finally {
             isLoading = false;
             sendBtn.disabled = false;
@@ -181,4 +239,12 @@
     if (chatHistory.length > 0 && chatHistory[chatHistory.length - 1].role === 'bot') {
         setTimeout(() => showOrderButton(), 200);
     }
+
+    // Применяем язык при загрузке
+    applyChatLang();
+
+    // Следим за сменой языка на сайте
+    const langObserver = new MutationObserver(() => applyChatLang());
+    const langBtn = document.getElementById('langBtn');
+    if (langBtn) langObserver.observe(langBtn, { childList: true, characterData: true, subtree: true });
 })();
