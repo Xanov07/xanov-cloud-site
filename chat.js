@@ -169,6 +169,27 @@
         if (el) el.remove();
     }
 
+    function showNewChatButton() {
+        if (document.getElementById('newChatBtn')) return;
+        const wrap = document.createElement('div');
+        wrap.className = 'chat-order-wrap';
+        wrap.id = 'newChatBtn';
+        wrap.innerHTML = `<button class="chat-order-btn chat-order-btn--new">✨ Начать новый чат</button>`;
+        wrap.querySelector('button').addEventListener('click', () => {
+            clearHistory();
+            chatHistory = [];
+            messages.innerHTML = '';
+            if (greeting) {
+                greeting.style.display = '';
+                messages.appendChild(greeting);
+            }
+            localStorage.removeItem('xanov_session_id');
+            location.reload();
+        });
+        messages.appendChild(wrap);
+        scrollToBottom();
+    }
+
     function showOrderButton() {
         if (document.getElementById('orderBtn')) return;
         const t = getChatLang();
@@ -216,7 +237,9 @@
             const reply = data.reply || data.response || data.message || getChatLang().error;
             renderMessage(reply, 'bot');
 
-            if (!data.order_mode) {
+            if (data.order_mode) {
+                setTimeout(() => showNewChatButton(), 600);
+            } else {
                 setTimeout(() => showOrderButton(), 400);
             }
 
