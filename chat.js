@@ -214,6 +214,10 @@
         isLoading = true;
         sendBtn.disabled = true;
 
+        // Убираем кнопку заказа когда пользователь пишет
+        const existingOrderBtn = document.getElementById('orderBtn');
+        if (existingOrderBtn) existingOrderBtn.remove();
+
         // Скрываем приветствие при первом сообщении
         if (greeting) greeting.style.display = 'none';
 
@@ -258,10 +262,6 @@
     // Восстанавливаем историю при загрузке страницы
     restoreHistory();
 
-    // Показываем кнопку заказа если есть история и последнее сообщение от бота
-    if (chatHistory.length > 0 && chatHistory[chatHistory.length - 1].role === 'bot') {
-        setTimeout(() => showOrderButton(), 200);
-    }
 
     // Применяем язык при загрузке
     applyChatLang();
