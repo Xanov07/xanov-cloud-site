@@ -50,21 +50,21 @@
 
     const chatI18n = {
         ru: {
-            greeting: 'Привет! Я ассистент XanovCompany. Расскажите, что вас интересует?',
+            greeting: 'Привет! Я ассистент XanovCompany. Я помогу вам ответить на любой вопрос и подобрать нужное решение. Расскажите, что вас интересует?',
             placeholder: 'Написать сообщение...',
             orderBtn: '🛒 Хочу заказать',
             noConnection: 'Нет соединения. Попробуйте позже.',
             error: 'Ошибка. Попробуйте ещё раз.'
         },
         en: {
-            greeting: 'Hi! I\'m XanovCompany assistant. What are you interested in?',
+            greeting: 'Hi! I\'m XanovCompany assistant. I\'ll help answer any question and find the right solution. What are you interested in?',
             placeholder: 'Write a message...',
             orderBtn: '🛒 I want to order',
             noConnection: 'No connection. Please try again later.',
             error: 'Error. Please try again.'
         },
         es: {
-            greeting: '¡Hola! Soy el asistente de XanovCompany. ¿Qué te interesa?',
+            greeting: '¡Hola! Soy el asistente de XanovCompany. Te ayudaré a responder cualquier pregunta y encontrar la solución adecuada. ¿Qué te interesa?',
             placeholder: 'Escribe un mensaje...',
             orderBtn: '🛒 Quiero ordenar',
             noConnection: 'Sin conexión. Intenta más tarde.',
